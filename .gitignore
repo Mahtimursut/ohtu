@@ -12,3 +12,6 @@
 hs_err_pid*
 /Viitekirjasto/nbproject/private/
 /Viitekirjasto/build/
+
+# project files
+.idea
