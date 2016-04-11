@@ -19,3 +19,5 @@ hs_err_pid*
 # Ignore temp and lock files
 *~
 
+# Ignore (for now?) the file used to store saved references
+saved_references

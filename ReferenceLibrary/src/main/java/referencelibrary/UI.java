@@ -13,9 +13,11 @@ import java.util.HashMap;
  */
 public class UI {
     private final IO io;
+    private final App app;
 
-    public UI(IO io) {
+    public UI(IO io, App app) {
         this.io = io;
+        this.app = app;
     }
     
     public void run() {
@@ -26,10 +28,15 @@ public class UI {
         while(!command.equals("q")) {
             //call chosen functionality
             switch (command){
-                case "a":   addNewReference();
-                            break;
-                case "g":   generateBixTexFile();
-                            break;
+                case "a":
+                    addNewReference();
+                    break;
+                case "g":
+                    generateBixTexFile();
+                    break;
+                case "s":
+                    showReferences();
+                    break;
             }
             //new command
             printAvailableCommands();
@@ -39,7 +46,10 @@ public class UI {
     }
     
     public void printAvailableCommands() {
-        io.print("(q)uit," + "\n" + "(a)dd new reference," + "\n" + "(g)enerate bibtex" + "\n");
+        io.print("(q)uit," + "\n" +
+                "(a)dd new reference," + "\n" +
+                "(g)enerate bibtex" + "\n" +
+                "(s)how references" + "\n");
     }
     
     public void addNewReference() {
@@ -77,11 +87,9 @@ public class UI {
         newRef.setField("title", title);
         newRef.setField("year", year);
         newRef.setField("publisher", publisher);
-        
-        //save reference
-        //App.save(newRef) TAI
-        //BibtexConverter.save(newRef)
-        
+
+        //save the reference
+        app.newReference(newRef);
     }
     
     public void generateBixTexFile() {
@@ -90,5 +98,9 @@ public class UI {
         io.print("--generating not implemented");
         
         io.print("Generating done!");
+    }
+
+    public void showReferences() {
+        app.listReferences().forEach(reference -> io.print(reference.toString()));
     }
 }

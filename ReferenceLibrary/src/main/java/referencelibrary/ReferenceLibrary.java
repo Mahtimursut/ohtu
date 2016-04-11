@@ -5,6 +5,9 @@
  */
 package referencelibrary;
 
+import referencelibrary.data.FileReferenceDao;
+import referencelibrary.data.ReferenceDao;
+
 import java.util.Scanner;
 
 /**
@@ -18,8 +21,10 @@ public class ReferenceLibrary {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ReferenceDao references = new FileReferenceDao("saved_references");
+        App app = new App(references);
         Scanner userinput = new Scanner(System.in);
-        UI terminalUI = new UI(new ConsoleIO());
+        UI terminalUI = new UI(new ConsoleIO(), app);
         terminalUI.run();
     }
     
