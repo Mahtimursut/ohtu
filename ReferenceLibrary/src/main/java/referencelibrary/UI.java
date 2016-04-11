@@ -5,6 +5,8 @@
  */
 package referencelibrary;
 
+import java.util.HashMap;
+
 /**
  *
  * @author juhapekm
@@ -39,11 +41,36 @@ public class UI {
     
     public void addNewReference() {
         io.print("Add new reference");
-        //switch: reference type
-            //call appropriate adding method
-        io.print("--adding not implement");
         
-        io.print("Reference added!");
+        //promt reference type
+        String command = io.readLine("\nChoose reference type: \n");
+        io.print("(B)ook, \n(O)ther\n");
+        
+        //switch (reference type)
+        switch(command){
+            case "B":   //Call addBook
+                        io.print("--adding not implement");
+                        //io.print("Reference added!");
+                        break;
+            case "O":   io.print("--adding not implement");
+                        //io.print("Reference added!");
+                        break;
+        } 
+    }
+    
+    public void addNewBook() {
+        String referenceType = "Book";
+        String referenceName = io.readLine("Reference id");
+        String author = io.readLine("Author: ");
+        String title = io.readLine("Title: ");
+        String year = io.readLine("Year: ");
+        String publisher = io.readLine("Publisher: ");
+        HashMap<String, String> newRefHash = new HashMap<String, String>();
+        newRefHash.put("author", author);
+        newRefHash.put("title", title);
+        newRefHash.put("year", year);
+        newRefHash.put("publisher", publisher);
+        //Reference newRef = new Reference();
     }
     
     public void generateBixTexFile() {
