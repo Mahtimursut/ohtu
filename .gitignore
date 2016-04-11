@@ -15,3 +15,7 @@ hs_err_pid*
 # project files
 .idea
 /ReferenceLibrary/nbproject/
+
+# Ignore temp and lock files
+*~
+
