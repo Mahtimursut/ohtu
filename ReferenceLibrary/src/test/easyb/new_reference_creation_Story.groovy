@@ -2,7 +2,7 @@ import referencelibrary.*
 import referencelibrary.UI.*
 import referencelibrary.data.StubDao
 
-description """A new bookreference can be added
+description """A new reference can be added
                 to referencelibrary"""
 
 scenario "New bookreference can be added to system", {
@@ -12,11 +12,11 @@ scenario "New bookreference can be added to system", {
         ui = new UI(io, app)
     }
  
-    when 'a valid username and password are entered', {
+    when 'a new reference is made and valid data is entered', {
       ui.run()
     }
 
-    then 'new user is registered to system', {
+    then 'new reference is added to the system', {
       io.getPrints().shouldHave("Reference added!")
     }
 }
