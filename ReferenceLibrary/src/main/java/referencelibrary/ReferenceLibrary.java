@@ -19,7 +19,7 @@ public class ReferenceLibrary {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner userinput = new Scanner(System.in);
-        UI terminalUI = new UI();
+        UI terminalUI = new UI(new ConsoleIO());
         terminalUI.run();
     }
     

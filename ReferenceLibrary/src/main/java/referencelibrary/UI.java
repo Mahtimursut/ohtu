@@ -12,10 +12,13 @@ import java.util.HashMap;
  * @author juhapekm
  */
 public class UI {
-    private IO io;
+    private final IO io;
+
+    public UI(IO io) {
+        this.io = io;
+    }
     
     public void run() {
-        io = new ConsoleIO();
         io.print("Reference library");
         printAvailableCommands();
         String command = "q";
@@ -49,8 +52,7 @@ public class UI {
         //switch (reference type)
         switch(command){
             case "B":   addNewBook();
-                        io.print("--adding not implement");
-                        //io.print("Reference added!");
+                        io.print("Reference added!");
                         break;
             case "O":   io.print("--adding not implement");
                         //io.print("Reference added!");
