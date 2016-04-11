@@ -19,50 +19,10 @@ public class ReferenceLibrary {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner userinput = new Scanner(System.in);
-        runUI(userinput);
+        UI terminalUI = new UI();
+        terminalUI.run();
     }
     
-    public static void runUI(Scanner user) {
-        System.out.println("Viitekirjasto");
-        System.out.println("\nChoose command: ");
-        printAvailableCommands();
-        String command = "q";
-        command = user.nextLine();
-        while(!command.equals("q")) {
-            //call chosen functionality
-            switch (command){
-                case "a":   addNewReference();
-                            break;
-                case "g":   generateBixTexFile();
-                            break;
-            }
-            //new command
-            System.out.println("\nChoose command: ");
-            printAvailableCommands();
-            command = user.nextLine();
-        }
-        System.out.println("Ohjelma loppuu..");
-    }
     
-    public static void printAvailableCommands() {
-        System.out.println("(q)uit," + "\n" + "(a)dd new reference," + "\n" + "(g)enerate bibtex" + "\n");
-    }
-    
-    public static void addNewReference() {
-        System.out.println("Add new reference");
-        //switch: reference type
-            //call appropriate adding method
-        System.out.println("--adding not implement");
-        
-        System.out.println("Reference added!");
-    }
-    
-    public static void generateBixTexFile() {
-        System.out.println("Generating bibTex -file");
-        //call bibtex-file generator
-        System.out.println("--generating not implemented");
-        
-        System.out.println("Generating done!");
-    }
     
 }
