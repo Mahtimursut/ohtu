@@ -5,6 +5,7 @@
  */
 package referencelibrary;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import java.util.Map;
  *
  * @author rimi
  */
-public class Reference {
+public class Reference implements Serializable {
 
     private String referenceType;
     private String referenceName;
