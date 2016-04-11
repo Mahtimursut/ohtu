@@ -12,12 +12,12 @@ import static org.junit.Assert.*;
 /**
  * Created by petri on 11/04/16.
  */
-public class ReferenceDaoTest {
-    private ReferenceDao refs;
+public class FileReferenceDaoTest {
+    private FileReferenceDao refs;
 
     @Before
     public void setUp() throws Exception {
-        refs = new ReferenceDao("references_test");
+        refs = new FileReferenceDao("references_test");
     }
 
     @After
@@ -54,7 +54,7 @@ public class ReferenceDaoTest {
     public void referencesPersistInStorage() {
         Reference reference = new Reference("book", "TEST");
         refs.add(reference);
-        ReferenceDao newRefs = new ReferenceDao("references_test");
+        FileReferenceDao newRefs = new FileReferenceDao("references_test");
         List<Reference> persistedRefs = newRefs.listAll();
         assertEquals("TEST", persistedRefs.get(0).getReferenceName());
     }
