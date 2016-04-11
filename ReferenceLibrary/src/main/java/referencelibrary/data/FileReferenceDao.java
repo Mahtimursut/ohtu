@@ -1,4 +1,7 @@
-package referencelibrary;
+package referencelibrary.data;
+
+import referencelibrary.Reference;
+import referencelibrary.ReferenceDao;
 
 import java.io.*;
 import java.util.ArrayList;

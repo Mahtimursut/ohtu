@@ -1,4 +1,6 @@
-package referencelibrary;
+package referencelibrary.data;
+
+import referencelibrary.Reference;
 
 import java.util.List;
 
