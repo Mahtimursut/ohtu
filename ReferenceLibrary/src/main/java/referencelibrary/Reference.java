@@ -10,32 +10,42 @@ import java.util.Map;
 
 /**
  * A general reference class for bibtex references
- * 
+ *
  * @author rimi
  */
 public class Reference {
-    private String referenceName;
+
     private String referenceType;
+    private String referenceName;
     private final HashMap<String, String> fieldValues;
 
-    public Reference(String referenceName, String referenceType, HashMap<String, String> fieldValues) {
-        this.referenceName = referenceName;
+    public Reference(String referenceType, String referenceName) {
         this.referenceType = referenceType;
-        this.fieldValues = fieldValues;
+        this.referenceName = referenceName;
+        this.fieldValues = new HashMap<>();
+    }
+
+    public void setField(String fieldName, String fieldValue) {
+        fieldValues.put(fieldName, fieldValue);
+    }
+
+    public String getField(String fieldName) {
+        return fieldValues.get(fieldName);
     }
 
     @Override
     public String toString() {
-        String str = getReferenceType()+": "+getReferenceName()+"\n";
+        String str = getReferenceType() + ": " + getReferenceName() + "\n";
         str += "";
         for (Map.Entry<String, String> entry : fieldValues.entrySet()) {
-            str += entry.getKey()+": "+entry.getValue()+"\n";
+            str += entry.getKey() + ": " + entry.getValue() + "\n";
         }
         return str;
     }
 
     /**
      * Gets the name field
+     *
      * @return the referenceName
      */
     public String getReferenceName() {
@@ -44,6 +54,7 @@ public class Reference {
 
     /**
      * Sets the name field
+     *
      * @param referenceName the referenceName to set
      */
     public void setReferenceName(String referenceName) {
@@ -52,6 +63,7 @@ public class Reference {
 
     /**
      * Gets the type, for example book, article
+     *
      * @return the referenceType
      */
     public String getReferenceType() {
@@ -60,6 +72,7 @@ public class Reference {
 
     /**
      * Sets the reference type, for example book, article
+     *
      * @param referenceType the referenceType to set
      */
     public void setReferenceType(String referenceType) {
@@ -68,9 +81,10 @@ public class Reference {
 
     /**
      * Returns a map of field names mapped to field values
-     * @return copy of fieldValues
+     *
+     * @return fieldValues
      */
-    public HashMap<String, String> getFieldValuesCopy() {
-        return (HashMap<String, String>)fieldValues.clone();
+    public HashMap<String, String> getFieldValues() {
+        return fieldValues;
     }
 }
