@@ -42,13 +42,13 @@ public class UI {
     public void addNewReference() {
         io.print("Add new reference");
         
-        //promt reference type
-        String command = io.readLine("\nChoose reference type: \n");
-        io.print("(B)ook, \n(O)ther\n");
+        //prompt reference type
+        String command = io.readLine(
+            "\nChoose reference type: \n(B)ook, \n(O)ther\n");
         
         //switch (reference type)
         switch(command){
-            case "B":   //Call addBook
+            case "B":   addNewBook();
                         io.print("--adding not implement");
                         //io.print("Reference added!");
                         break;
@@ -59,18 +59,27 @@ public class UI {
     }
     
     public void addNewBook() {
+        //prompt reference name
         String referenceType = "Book";
         String referenceName = io.readLine("Reference id");
+        Reference newRef = new Reference(referenceType, referenceName);
+        
+        //prompt fields
         String author = io.readLine("Author: ");
         String title = io.readLine("Title: ");
         String year = io.readLine("Year: ");
         String publisher = io.readLine("Publisher: ");
-        HashMap<String, String> newRefHash = new HashMap<String, String>();
-        newRefHash.put("author", author);
-        newRefHash.put("title", title);
-        newRefHash.put("year", year);
-        newRefHash.put("publisher", publisher);
-        //Reference newRef = new Reference();
+        
+        //set fields
+        newRef.setField("author", author);
+        newRef.setField("title", title);
+        newRef.setField("year", year);
+        newRef.setField("publisher", publisher);
+        
+        //save reference
+        //App.save(newRef) TAI
+        //BibtexConverter.save(newRef)
+        
     }
     
     public void generateBixTexFile() {
