@@ -7,7 +7,7 @@ description """User can create a BibTex-file containing
 
 scenario "User can create Bibtex-file", {
     given 'command generate is selected', {
-        io = new StubIO("a", "B", "1", "2", "3", "4", "5", "q")
+        io = new StubIO("g", "q")
         app = new App(new StubDao())
         ui = new UI(io, app)
     }
