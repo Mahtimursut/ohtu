@@ -97,7 +97,7 @@ public class UI {
         //call bibtex-file generator
         app.generateBixTexFile();
         
-        io.print("Generating done!");
+        io.print("Generating done!\n");
     }
 
     public void showReferences() {

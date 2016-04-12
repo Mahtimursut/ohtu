@@ -47,14 +47,14 @@ public class BibTeXConverterTest {
         String bibtex = "@Book{a book,\n"
                 + " author        = {human},\n"
                 + " longFieldName = {Yay!},\n"
-                + "}";
+                + "}\n\n";
         assertEquals(bibtex, BibTeXConverter.convertToBibTeX(reference));
         reference.setField("something", "something");
         bibtex = "@Book{a book,\n"
                 + " author        = {human},\n"
                 + " longFieldName = {Yay!},\n"
                 + " something     = {something},\n"
-                + "}";
+                + "}\n\n";
         assertEquals(bibtex, BibTeXConverter.convertToBibTeX(reference));
     }
 }
