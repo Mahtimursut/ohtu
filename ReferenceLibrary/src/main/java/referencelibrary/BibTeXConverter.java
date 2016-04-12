@@ -35,7 +35,7 @@ public class BibTeXConverter {
                     .append("},\n");
         }
         //end
-        sb.append("}");
+        sb.append("}\n\n");
         return sb.toString();
     }
 
