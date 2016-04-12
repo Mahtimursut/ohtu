@@ -5,7 +5,7 @@ Viitekirjasto
 
 # Links
 
-(Coursepage)[https://github.com/mluukkai/ohtu2016/wiki/miniprojekti]
-(Project specifications)[https://github.com/mluukkai/ohtu2016/wiki/miniprojekti-speksi]
-(Backlog)[https://docs.google.com/spreadsheets/d/1bk2U0F3dxHBNpmuwJBrmL_MsDZsPFsWdoeCVLmdjHKU/pubhtml]
-(Travis)[https://travis-ci.org/Mahtimursut/ohtu]
+[Coursepage](https://github.com/mluukkai/ohtu2016/wiki/miniprojekti)
+[Project specifications](https://github.com/mluukkai/ohtu2016/wiki/miniprojekti-speksi)
+[Backlog](https://docs.google.com/spreadsheets/d/1bk2U0F3dxHBNpmuwJBrmL_MsDZsPFsWdoeCVLmdjHKU/pubhtml)
+[Travis](https://travis-ci.org/Mahtimursut/ohtu)
