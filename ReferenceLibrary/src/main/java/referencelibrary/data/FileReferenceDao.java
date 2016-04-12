@@ -13,11 +13,19 @@ public class FileReferenceDao implements ReferenceDao {
     private File file;
     private List<Reference> references;
 
+    /**
+     * Creates a FileReferenceDao that uses a file with a given name for storage
+     * @param filename filename for storing References
+     */
     public FileReferenceDao(String filename) {
         file = new File(filename);
         references = readReferences();
     }
 
+    /**
+     * Reads stored References
+     * @return List of References
+     */
     private List<Reference> readReferences() {
         try {
             return readFromStream();
@@ -26,6 +34,12 @@ public class FileReferenceDao implements ReferenceDao {
         }
     }
 
+    /**
+     * Reads the Reference List from the file
+     * @return List of References
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     private List<Reference> readFromStream() throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(file);
         ObjectInputStream ois = new ObjectInputStream(fis);
@@ -51,6 +65,10 @@ public class FileReferenceDao implements ReferenceDao {
         }
     }
 
+    /**
+     * Writes the Reference List to the file
+     * @throws IOException
+     */
     private void writeReferenceListToFile() throws IOException {
         FileOutputStream fos = new FileOutputStream(file);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
