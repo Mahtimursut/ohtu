@@ -1,10 +1,10 @@
 # Software production (ohtu) -course
 #### Miniproject repository
 
-#### Reference library
+##### Reference library
 [![Build Status](https://travis-ci.org/Mahtimursut/ohtu.svg?branch=master)](https://travis-ci.org/Mahtimursut/ohtu)
 
-# Links
+## Links
 
 [Coursepage](https://github.com/mluukkai/ohtu2016/wiki/miniprojekti)
 
