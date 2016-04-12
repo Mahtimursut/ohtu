@@ -1,1 +1,2 @@
 language: java
+script: cd ReferenceLibrary; mvn install; mvn test; mvn integration-test
