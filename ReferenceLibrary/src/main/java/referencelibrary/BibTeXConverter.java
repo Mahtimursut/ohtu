@@ -19,20 +19,20 @@ public class BibTeXConverter {
         StringBuilder sb = new StringBuilder();
         int longestKeyLength = getLongestKeyLength(r);
         //type and name
-        sb.append("@"
-                + r.getReferenceType() + "{"
-                + r.getReferenceName() + ",\n");
+        sb.append("@")
+               .append(r.getReferenceType()).append("{")
+               .append(r.getReferenceName()).append(",\n");
         //fields
         for (String s : r.getFieldValues().keySet()) {
             s = s.trim();
-            sb.append(" " + s);
+            sb.append(" ").append(s);
             //add whitespace
             for (int i = 0; i < longestKeyLength - s.length(); i++) {
                 sb.append(" ");
             }
 
-            sb.append(" = {" + r.getFieldValues().get(s) + "},\n");
-
+            sb.append(" = {").append(r.getFieldValues().get(s))
+                    .append("},\n");
         }
         //end
         sb.append("}");
