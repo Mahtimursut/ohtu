@@ -95,7 +95,7 @@ public class UI {
     public void generateBixTexFile() {
         io.print("Generating bibTex -file");
         //call bibtex-file generator
-        io.print("--generating not implemented");
+        app.generateBixTexFile();
         
         io.print("Generating done!");
     }

@@ -1,0 +1,6 @@
+@Book{1,
+ year      = {4},
+ author    = {2},
+ publisher = {5},
+ title     = {3},
+}
