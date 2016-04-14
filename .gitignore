@@ -25,3 +25,6 @@ saved_references
 # Ignore generated bibtex files
 *.bib
 *.bst
+
+# Ignore OS X stuff
+.DS_STORE
