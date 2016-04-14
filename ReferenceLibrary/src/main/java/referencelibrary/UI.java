@@ -57,14 +57,24 @@ public class UI {
         
         //prompt reference type
         String command = io.readLine(
-            "\nChoose reference type: \n(B)ook, \n(O)ther\n");
+            "\nChoose reference type: " +
+                "\n(b)ook, " +
+                "\n(a)rticle, " +
+                "\n(i)nproceedings, " +
+                "\n(o)ther\n\n");
         
         //switch (reference type)
         switch(command){
-            case "B":   addNewBook();
+            case "b":   addNewBook();
                         io.print("Reference added!");
                         break;
-            case "O":   io.print("--adding not implement");
+            case "a":   //call addNewArticle
+                        io.print("Reference added!");
+                        break;
+            case "i":   //call addNewInproceedings
+                        io.print("Reference added!");
+                        break;
+            case "o":   io.print("--adding other not implement");
                         //io.print("Reference added!");
                         break;
         } 
@@ -93,7 +103,7 @@ public class UI {
     }
     
     public void generateBixTexFile() {
-        io.print("Generating bibTex -file");
+        io.print("\nGenerating bibTex -file");
         //call bibtex-file generator
         app.generateBixTexFile();
         
