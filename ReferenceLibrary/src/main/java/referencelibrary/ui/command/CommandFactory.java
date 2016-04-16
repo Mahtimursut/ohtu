@@ -21,6 +21,11 @@ public class CommandFactory {
 
     private HashMap<CommandName, Command> commands;
 
+    /**
+     * Creates a new CommandFactory that encapsulates the generation and accessing of Commands.
+     * @param app Main business logic
+     * @param io Connection to the human
+     */
     public CommandFactory(App app, IO io) {
         commands = new HashMap<>();
         commands.put(INVALID_COMMAND, new InvalidCommand(app, io));

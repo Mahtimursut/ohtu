@@ -26,6 +26,10 @@ public class AddBookCommand extends Command {
         app.newReference(newRef);
     }
 
+    /**
+     * Prompts for required fields and allows the user to add optional fields.
+     * @param reference The Reference to which to add fields
+     */
     private void fillReferenceFields(Reference reference) {
         fillRequiredFields(reference);
 
@@ -38,10 +42,18 @@ public class AddBookCommand extends Command {
         }
     }
 
+    /**
+     * Prompts for the fields required in the particular reference type.
+     * @param reference The Reference to which to add the fields
+     */
     private void fillRequiredFields(Reference reference) {
         reference.getRequiredFields().forEach(field -> reference.setField(field, promptForField(field)));
     }
 
+    /**
+     * Allows the user to add optional fields to a reference.
+     * @param reference The Reference to which to add optional fields
+     */
     private void fillOptionalFields(Reference reference) {
         while (true) {
             String command = io.readLine("How do you want to proceed?\n" +
@@ -63,10 +75,18 @@ public class AddBookCommand extends Command {
         }
     }
 
+    /**
+     * Shows the valid optional fields.
+     * @param reference The Reference for which to show the valid fields
+     */
     private void showValidOptionalFields(Reference reference) {
         reference.getOptionalFields().forEach(io::print);
     }
 
+    /**
+     * Adds a single field to a reference
+     * @param reference The Reference to which to add the field
+     */
     private void addOptionalFieldToReference(Reference reference) {
         String fieldName;
 
@@ -79,6 +99,11 @@ public class AddBookCommand extends Command {
         reference.setField(fieldName, value);
     }
 
+    /**
+     * Asks the user for value for a given field name.
+     * @param fieldName Name of the field for which to ask the value
+     * @return Value for the field
+     */
     private String promptForField(String fieldName) {
         return io.readLine(fieldName + ":");
     }

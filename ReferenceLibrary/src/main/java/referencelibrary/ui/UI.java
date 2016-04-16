@@ -48,7 +48,10 @@ public class UI {
         }
         io.print("Ohjelma loppuu..");
     }
-    
+
+    /**
+     * Allows the user to add a new reference.
+     */
     private void addNewReference() {
         io.print("Add new reference");
         

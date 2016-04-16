@@ -1,5 +1,5 @@
 import referencelibrary.*
-import referencelibrary.UI.*
+import referencelibrary.ui.UI
 import referencelibrary.data.StubDao
 
 description """User can create a BibTex-file containing
