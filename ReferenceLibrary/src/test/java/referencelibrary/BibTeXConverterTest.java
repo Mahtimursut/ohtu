@@ -5,12 +5,14 @@
  */
 package referencelibrary;
 
+import referencelibrary.reference.Reference;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import referencelibrary.reference.BookReference;
 
 /**
  *
@@ -33,9 +35,9 @@ public class BibTeXConverterTest {
     
     @Before
     public void setUp() {
-        reference = new Reference("Book", "a book");
+        reference = new BookReference("a book");
         reference.setField("author", "human");
-        reference.setField("longFieldName", "Yay!");
+        reference.setField("title", "Yay!");
     }
     
     @After
@@ -45,15 +47,15 @@ public class BibTeXConverterTest {
     @Test
     public void testConversion() {
         String bibtex = "@Book{a book,\n"
-                + " author        = {human},\n"
-                + " longFieldName = {Yay!},\n"
+                + " author = {human},\n"
+                + " title  = {Yay!},\n"
                 + "}\n\n";
         assertEquals(bibtex, BibTeXConverter.convertToBibTeX(reference));
-        reference.setField("something", "something");
+        reference.setField("note", "something");
         bibtex = "@Book{a book,\n"
-                + " author        = {human},\n"
-                + " longFieldName = {Yay!},\n"
-                + " something     = {something},\n"
+                + " author = {human},\n"
+                + " note   = {something},\n"
+                + " title  = {Yay!},\n"
                 + "}\n\n";
         assertEquals(bibtex, BibTeXConverter.convertToBibTeX(reference));
     }

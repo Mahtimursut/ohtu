@@ -5,7 +5,8 @@
  */
 package referencelibrary;
 
-import java.util.HashMap;
+import referencelibrary.reference.Reference;
+import referencelibrary.reference.BookReference;
 
 /**
  *
@@ -82,9 +83,8 @@ public class UI {
     
     public void addNewBook() {
         //prompt reference name
-        String referenceType = "Book";
         String referenceName = io.readLine("Reference id");
-        Reference newRef = new Reference(referenceType, referenceName);
+        Reference newRef = new BookReference(referenceName);
         
         //prompt fields
         String author = io.readLine("Author: ");

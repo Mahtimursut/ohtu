@@ -1,5 +1,6 @@
 package referencelibrary;
 
+import referencelibrary.reference.Reference;
 import referencelibrary.data.FileReferenceDao;
 import org.junit.After;
 import org.junit.Before;
@@ -9,6 +10,7 @@ import java.io.File;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import referencelibrary.reference.BookReference;
 
 /**
  * Created by petri on 11/04/16.
@@ -35,8 +37,8 @@ public class FileReferenceDaoTest {
 
     @Test
     public void correctNumberOfReferencesReturnedAfterAddition() {
-        Reference reference = new Reference("book", "TEST");
-        Reference reference2 = new Reference("book", "TEST2");
+        Reference reference = new BookReference("TEST");
+        Reference reference2 = new BookReference("TEST2");
         refs.add(reference);
         refs.add(reference2);
         List<Reference> references = refs.listAll();
@@ -45,7 +47,7 @@ public class FileReferenceDaoTest {
 
     @Test
     public void correctReferenceReturnedAfterAddition() {
-        Reference reference = new Reference("book", "TEST");
+        Reference reference = new BookReference("TEST");
         refs.add(reference);
         List<Reference> references = refs.listAll();
         assertEquals("TEST", references.get(0).getReferenceName());
@@ -53,7 +55,7 @@ public class FileReferenceDaoTest {
 
     @Test
     public void referencesPersistInStorage() {
-        Reference reference = new Reference("book", "TEST");
+        Reference reference = new BookReference("TEST");
         refs.add(reference);
         FileReferenceDao newRefs = new FileReferenceDao("references_test");
         List<Reference> persistedRefs = newRefs.listAll();

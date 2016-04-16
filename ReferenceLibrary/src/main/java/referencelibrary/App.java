@@ -1,5 +1,6 @@
 package referencelibrary;
 
+import referencelibrary.reference.Reference;
 import referencelibrary.data.ReferenceDao;
 
 import java.util.List;

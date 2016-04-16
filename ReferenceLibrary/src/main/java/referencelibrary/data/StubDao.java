@@ -1,9 +1,10 @@
 package referencelibrary.data;
 
-import referencelibrary.Reference;
+import referencelibrary.reference.Reference;
 
 import java.util.ArrayList;
 import java.util.List;
+import referencelibrary.reference.BookReference;
 
 /**
  * Created by petri on 11/04/16.
@@ -14,7 +15,7 @@ public class StubDao implements ReferenceDao {
 
     public StubDao() {
         refs = new ArrayList<>();
-        Reference ref = new Reference("book", "REF");
+        Reference ref = new BookReference("REF");
         refs.add(ref);
     }
 

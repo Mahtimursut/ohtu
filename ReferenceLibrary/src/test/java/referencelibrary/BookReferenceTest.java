@@ -5,25 +5,28 @@
  */
 package referencelibrary;
 
+import referencelibrary.reference.Reference;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import referencelibrary.reference.BookReference;
+import referencelibrary.reference.ReferenceType;
 
 /**
  *
  * @author rimi
  */
-public class ReferenceTest {
+public class BookReferenceTest {
 
     Reference reference = null;
 
-    public ReferenceTest() {
+    public BookReferenceTest() {
     }
 
     @Before
     public void setUp() {
-        this.reference = new Reference("book", "my_book");
+        this.reference = new BookReference("my_book");
     }
 
     @After
@@ -32,9 +35,9 @@ public class ReferenceTest {
 
     @Test
     public void testConstructor() {
-        reference = new Reference("book", "my_book");
+        reference = new BookReference("my_book");
         assertEquals(reference.getReferenceName(), "my_book");
-        assertEquals(reference.getReferenceType(), "book");
+        assertEquals(reference.getReferenceType(), ReferenceType.REFERENCE_BOOK);
         assertTrue(reference.getFieldValues().isEmpty());
     }
 
