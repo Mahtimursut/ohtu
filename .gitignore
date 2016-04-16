@@ -14,10 +14,12 @@ hs_err_pid*
 
 # project files
 .idea
+/ReferenceLibrary/ReferenceLibrary.iml
 /ReferenceLibrary/nbproject/
 
 # Ignore temp and lock files
 *~
+.DS_STORE
 
 # Ignore (for now?) the file used to store saved references
 saved_references
@@ -25,6 +27,3 @@ saved_references
 # Ignore generated bibtex files
 *.bib
 *.bst
-
-# Ignore OS X stuff
-.DS_STORE
