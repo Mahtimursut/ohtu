@@ -1,0 +1,38 @@
+package referencelibrary.ui.command;
+
+import referencelibrary.App;
+import referencelibrary.IO;
+
+import java.util.HashMap;
+
+import static referencelibrary.ui.command.CommandFactory.CommandName.*;
+
+/**
+ * Created by petri on 16.4.2016.
+ */
+public class CommandFactory {
+    public enum CommandName {
+        INVALID_COMMAND,
+        HELP_COMMAND,
+        ADD_BOOK_COMMAND,
+        GENERATE_BIBTEX_COMMAND,
+        SHOW_REFERENCES_COMMAND
+    }
+
+    private HashMap<CommandName, Command> commands;
+
+    public CommandFactory(App app, IO io) {
+        commands = new HashMap<>();
+        commands.put(INVALID_COMMAND, new InvalidCommand(app, io));
+        commands.put(HELP_COMMAND, new HelpCommand(app, io));
+        commands.put(ADD_BOOK_COMMAND, new AddBookCommand(app, io));
+        commands.put(GENERATE_BIBTEX_COMMAND, new GenerateBibTexCommand(app, io));
+        commands.put(SHOW_REFERENCES_COMMAND, new ShowReferencesCommand(app, io));
+    }
+
+    public Command getCommand(CommandName commandName) {
+        Command command = commands.get(commandName);
+        return command != null ? command : commands.get(INVALID_COMMAND);
+    }
+}
+

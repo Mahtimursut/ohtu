@@ -1,5 +1,6 @@
 import referencelibrary.*
-import referencelibrary.UI.*
+import referencelibrary.ui.UI
+import referencelibrary.ui.UI.*
 import referencelibrary.data.StubDao
 
 description """A new reference can be added
@@ -7,7 +8,7 @@ description """A new reference can be added
 
 scenario "New bookreference can be added to system", {
     given 'command add book is selected and reference info is typed', {
-        io = new StubIO("a", "b", "1", "2", "3", "4", "5", "q")
+        io = new StubIO("a", "b", "1", "2", "3", "4", "5", "6", "n", "q")
         app = new App(new StubDao())
         ui = new UI(io, app)
     }

@@ -16,15 +16,15 @@ public class App {
         this.references = references;
     }
 
-    protected void newReference(Reference reference) {
+    public void newReference(Reference reference) {
         references.add(reference);
     }
 
-    protected List<Reference> listReferences() {
+    public List<Reference> listReferences() {
         return references.listAll();
     }
         
-    protected void generateBixTexFile() {
+    public void generateBixTexFile() {
         //convert all references to BibTeX-format
         StringBuilder bibtexStringBuilder = new StringBuilder();
         for (Reference r : this.references.listAll()) {
