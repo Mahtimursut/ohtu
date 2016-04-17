@@ -5,6 +5,9 @@
  */
 package referencelibrary;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import referencelibrary.reference.Reference;
 import org.junit.After;
 import org.junit.Before;
@@ -36,26 +39,57 @@ public class BookReferenceTest {
     @Test
     public void testConstructor() {
         reference = new BookReference("my_book");
-        assertEquals(reference.getReferenceName(), "my_book");
-        assertEquals(reference.getReferenceType(), ReferenceType.REFERENCE_BOOK);
+        assertEquals("my_book", reference.getReferenceName());
+        assertEquals(ReferenceType.REFERENCE_BOOK, reference.getReferenceType());
         assertTrue(reference.getFieldValues().isEmpty());
     }
 
     @Test
     public void testSetField() {
         String fieldName = "author";
-        reference.setField(fieldName, "Risto Mikkola");
-        assertEquals(reference.getField(fieldName), "Risto Mikkola");
-        reference.setField(fieldName, "Jukka-Pekka Moilanen");
-        assertEquals(reference.getField(fieldName), "Jukka-Pekka Moilanen");
+        String expectedValue = "Risto Mikkola";
+        reference.setField(fieldName, expectedValue);
+        assertEquals(expectedValue, reference.getField(fieldName));
+
+        expectedValue = "Jukka-Pekka Moilanen";
+        reference.setField(fieldName, expectedValue);
+        assertEquals(expectedValue, reference.getField(fieldName));
     }
 
     @Test
     public void testGetField() {
         String fieldName = "author";
+        String expectedValue = "Sami Sarsa";
         assertNull(reference.getField(fieldName));
-        reference.setField(fieldName, "Sami Sarsa");
-        assertEquals(reference.getField(fieldName), "Sami Sarsa");
+        reference.setField(fieldName, expectedValue);
+        assertEquals(expectedValue, reference.getField(fieldName));
+    }
+
+    @Test
+    public void testSetReferenceName() {
+        String name = "newname";
+        reference.setReferenceName(name);
+        assertEquals(name, reference.getReferenceName());
+    }
+
+    @Test
+    public void testGetAllFields() {
+        List<String> expectedFields = new ArrayList<>();
+        expectedFields.addAll(reference.getRequiredFields());
+        expectedFields.addAll(reference.getOptionalFields());
+        List<String> fields = reference.getAllFields();
+
+        Collections.sort(expectedFields);
+        Collections.sort(fields);
+        assertEquals(expectedFields, fields);
+    }
+
+    @Test
+    public void testToString() {
+        String expected = "[Book: my_book]";
+        reference.setField("title", "Book of testing");
+        reference.setField("note", "Contains various tests");
+        assertEquals(expected, reference.toString());
     }
 
 }

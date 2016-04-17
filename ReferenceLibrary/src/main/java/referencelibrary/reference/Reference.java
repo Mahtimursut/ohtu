@@ -8,7 +8,6 @@ package referencelibrary.reference;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -62,12 +61,7 @@ public abstract class Reference implements Serializable {
 
     @Override
     public String toString() {
-        String str = getReferenceType() + ": " + getReferenceName() + "\n";
-        str += "";
-        for (Map.Entry<String, String> entry : fieldValues.entrySet()) {
-            str += entry.getKey() + ": " + entry.getValue() + "\n";
-        }
-        return str;
+        return "[" + getReferenceType() + ": " + getReferenceName() + "]";
     }
 
     /**
