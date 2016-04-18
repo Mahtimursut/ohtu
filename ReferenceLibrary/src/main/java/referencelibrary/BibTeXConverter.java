@@ -40,7 +40,7 @@ public class BibTeXConverter {
         return sb.toString();
     }
 
-    private static int getLongestKeyLength(Reference r) {
+    public static int getLongestKeyLength(Reference r) {
         int longest = 0;
         for (String s : r.getFieldValues().keySet()) {
             if (s.length() > longest) {

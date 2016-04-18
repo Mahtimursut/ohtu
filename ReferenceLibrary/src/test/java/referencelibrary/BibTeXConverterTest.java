@@ -59,4 +59,16 @@ public class BibTeXConverterTest {
                 + "}\n\n";
         assertEquals(bibtex, BibTeXConverter.convertToBibTeX(reference));
     }
+    
+    @Test
+    public void testGetLongestKeyLength() {
+        assertEquals(BibTeXConverter.getLongestKeyLength(reference), 6);
+        reference.setField("address", "möyh");
+        assertEquals(BibTeXConverter.getLongestKeyLength(reference), 7);
+    }
+    
+    @Test
+    public void hiivatinLineCoverage() {
+        Object o = new BibTeXConverter();
+    }
 }
