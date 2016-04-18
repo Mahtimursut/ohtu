@@ -1,4 +1,4 @@
-package referencelibrary;
+package referencelibrary.util;
 
 import referencelibrary.reference.Reference;
 import java.util.HashMap;

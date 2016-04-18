@@ -2,6 +2,8 @@ package referencelibrary;
 
 import referencelibrary.reference.Reference;
 import referencelibrary.data.ReferenceDao;
+import referencelibrary.util.BibTeXConverter;
+import referencelibrary.util.FileUtil;
 
 import java.util.List;
 

@@ -13,6 +13,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import referencelibrary.reference.BookReference;
+import referencelibrary.util.BibTeXConverter;
 
 /**
  *

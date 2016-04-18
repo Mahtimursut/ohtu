@@ -2,7 +2,7 @@
  * Created by petri on 18.4.2016.
  */
 
-import referencelibrary.StubIO
+import referencelibrary.io.StubIO
 import referencelibrary.App
 import referencelibrary.data.StubDao
 import referencelibrary.ui.UI

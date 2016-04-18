@@ -1,4 +1,4 @@
-package referencelibrary;
+package referencelibrary.io;
 
 public interface IO {
     void print(String toPrint);

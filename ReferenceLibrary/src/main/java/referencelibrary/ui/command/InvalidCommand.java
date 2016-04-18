@@ -1,7 +1,7 @@
 package referencelibrary.ui.command;
 
 import referencelibrary.App;
-import referencelibrary.IO;
+import referencelibrary.io.IO;
 
 /**
  * Created by petri on 16.4.2016.

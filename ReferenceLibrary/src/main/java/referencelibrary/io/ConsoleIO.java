@@ -1,4 +1,4 @@
-package referencelibrary;
+package referencelibrary.io;
 
 import java.util.Scanner;
 

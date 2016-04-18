@@ -7,10 +7,9 @@ package referencelibrary;
 
 import referencelibrary.data.FileReferenceDao;
 import referencelibrary.data.ReferenceDao;
+import referencelibrary.io.ConsoleIO;
+import referencelibrary.io.IO;
 import referencelibrary.ui.UI;
-import referencelibrary.ui.command.CommandFactory;
-
-import java.util.Scanner;
 
 /**
  *
