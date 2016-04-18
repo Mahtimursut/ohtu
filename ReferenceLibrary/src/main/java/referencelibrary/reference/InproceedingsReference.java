@@ -3,34 +3,39 @@ package referencelibrary.reference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import static referencelibrary.reference.ReferenceType.REFERENCE_ARTICLE;
+import static referencelibrary.reference.ReferenceType.REFERENCE_INPROCEEDINGS;
 
 /**
  *
  * @author juhapekm
  */
-public class ArticleReference extends Reference {
+public class InproceedingsReference extends Reference {
 
     private final String[] requiredFields = {
         "author",
         "title",
-        "journal",
-        "year",
+        "booktitle",
         "volume",};
-    private final String[] optionalFields = {
+    private final String[] optionalFields = { 
+        "editor",
+        "volume", //NOTE: volume/number
         "number",
+        "series",
         "pages",
+        "address",
         "month",
+        "organization",
+        "publisher",
         "note",
         "key",};
 
     /**
-     * Creates a new article reference with given name
+     * Creates a new inproceedings reference with given name
      *
      * @param referenceName
      */
-    public ArticleReference(String referenceName) {
-        super(REFERENCE_ARTICLE, referenceName);
+    public InproceedingsReference(String referenceName) {
+        super(REFERENCE_INPROCEEDINGS, referenceName);
     }
 
     @Override

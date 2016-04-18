@@ -11,7 +11,8 @@ package referencelibrary.reference;
  */
 public enum ReferenceType {
     REFERENCE_BOOK("Book"),
-    REFERENCE_ARTICLE("Article");
+    REFERENCE_ARTICLE("Article"),
+    REFERENCE_INPROCEEDINGS("Inproceedings");
 
     private final String typeName;
 
