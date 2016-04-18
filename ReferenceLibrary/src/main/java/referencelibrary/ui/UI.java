@@ -28,7 +28,7 @@ public class UI {
         io.print("Reference library");
         commands.getCommand(HELP_COMMAND).execute();
         String command = "q";
-        command = io.readLine("\nChoose command: \n");
+        command = io.readLine("Choose command: \n");
         while(!command.equals("q")) {
             //call chosen functionality
             switch (command){
@@ -44,9 +44,9 @@ public class UI {
             }
             //new command
             commands.getCommand(HELP_COMMAND).execute();
-            command = io.readLine("\nChoose command: \n");
+            command = io.readLine("Choose command: \n");
         }
-        io.print("Ohjelma loppuu..");
+        io.print("Program closing..");
     }
 
     /**
@@ -69,7 +69,8 @@ public class UI {
                 commands.getCommand(ADD_BOOK_COMMAND).execute();
                 io.print("Reference added!");
                 break;
-            case "a":   //call addNewArticle
+            case "a":
+                commands.getCommand(ADD_ARTICLE_COMMAND).execute();
                 io.print("Reference added!");
                 break;
             case "i":   //call addNewInproceedings

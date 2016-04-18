@@ -15,6 +15,7 @@ public class CommandFactory {
         INVALID_COMMAND,
         HELP_COMMAND,
         ADD_BOOK_COMMAND,
+        ADD_ARTICLE_COMMAND,
         GENERATE_BIBTEX_COMMAND,
         SHOW_REFERENCES_COMMAND
     }
@@ -31,6 +32,7 @@ public class CommandFactory {
         commands.put(INVALID_COMMAND, new InvalidCommand(app, io));
         commands.put(HELP_COMMAND, new HelpCommand(app, io));
         commands.put(ADD_BOOK_COMMAND, new AddBookCommand(app, io));
+        commands.put(ADD_ARTICLE_COMMAND, new AddArticleCommand(app, io));
         commands.put(GENERATE_BIBTEX_COMMAND, new GenerateBibTexCommand(app, io));
         commands.put(SHOW_REFERENCES_COMMAND, new ShowReferencesCommand(app, io));
     }
