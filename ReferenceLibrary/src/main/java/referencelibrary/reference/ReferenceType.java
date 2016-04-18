@@ -10,7 +10,8 @@ package referencelibrary.reference;
  * @author rimi
  */
 public enum ReferenceType {
-    REFERENCE_BOOK("Book");
+    REFERENCE_BOOK("Book"),
+    REFERENCE_ARTICLE("Article");
 
     private final String typeName;
 
