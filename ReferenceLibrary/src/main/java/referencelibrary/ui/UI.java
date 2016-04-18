@@ -73,7 +73,8 @@ public class UI {
                 commands.getCommand(ADD_ARTICLE_COMMAND).execute();
                 io.print("Reference added!");
                 break;
-            case "i":   //call addNewInproceedings
+            case "i":
+                commands.getCommand(ADD_INPROCEEDINGS_COMMAND).execute();
                 io.print("Reference added!");
                 break;
             case "o":
