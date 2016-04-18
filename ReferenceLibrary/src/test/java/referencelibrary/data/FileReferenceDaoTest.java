@@ -1,4 +1,4 @@
-package referencelibrary;
+package referencelibrary.data;
 
 import referencelibrary.reference.Reference;
 import referencelibrary.data.FileReferenceDao;

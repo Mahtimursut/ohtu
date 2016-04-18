@@ -32,6 +32,6 @@ public class App {
             bibtexStringBuilder.append(refString);
         }
         //save String containing bibtex-references to File
-        FileWriter.Write("output.bst", bibtexStringBuilder.toString());
+        FileUtil.Write("output.bst", bibtexStringBuilder.toString());
     }
 }
