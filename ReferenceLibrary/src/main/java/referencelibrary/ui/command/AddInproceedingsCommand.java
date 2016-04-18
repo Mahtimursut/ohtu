@@ -1,7 +1,7 @@
 package referencelibrary.ui.command;
 
 import referencelibrary.App;
-import referencelibrary.IO;
+import referencelibrary.io.IO;
 import referencelibrary.reference.BookReference;
 import referencelibrary.reference.Reference;
 import referencelibrary.reference.ReferenceType;

@@ -1,15 +1,12 @@
 package referencelibrary.ui.command;
 
 import org.junit.After;
-import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import referencelibrary.App;
-import referencelibrary.StubIO;
 import referencelibrary.data.StubDao;
-import referencelibrary.reference.Reference;
+import referencelibrary.io.StubIO;
 
 /**
  *
