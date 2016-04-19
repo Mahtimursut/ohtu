@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package referencelibrary;
+package referencelibrary.util;
 
 import java.io.File;
 import org.junit.After;
