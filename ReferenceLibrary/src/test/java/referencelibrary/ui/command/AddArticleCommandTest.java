@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package referencelibrary.ui.command;
 
 import org.junit.After;
@@ -10,26 +15,17 @@ import referencelibrary.io.StubIO;
 
 /**
  *
- * @author juhapekm
+ * @author sjsarsa
  */
-public class AddInproceedingsCommandTest {
+public class AddArticleCommandTest {
 
     AddReferenceCommand addRefCmd = null;
     App app = null;
-    public AddInproceedingsCommandTest() {
-    }
 
-//    @BeforeClass
-//    public static void setUpClass() {
-//    }
-//    
-//    @AfterClass
-//    public static void tearDownClass() {
-//    }
     @Before
     public void setUp() {
         this.app = new App(new StubDao());
-        this.addRefCmd = new AddInproceedingsCommand(this.app, createStubIO());
+        this.addRefCmd = new AddArticleCommand(this.app, createStubIO());
     }
 
     /**
@@ -37,15 +33,16 @@ public class AddInproceedingsCommandTest {
      */
     private StubIO createStubIO() {
         StubIO stubIo = new StubIO(
-            "someId",
-            "someAuthor",
-            "someTitle",
-            "someBooktitle",
-            "someYear",
-            "y", //answers: "Would you like to add some optional fields?"
-            "a", //answers: (a)dd a field
-            "note",
-            "someNote"
+                "someId",
+                "someAuthor",
+                "someTitle",
+                "someJournal",
+                "someYear",
+                "someVolume",
+                "y", //answers: "Would you like to add some optional fields?"
+                "a", //answers: (a)dd a field
+                "note",
+                "someNote"
         );
         return stubIo; //author, title, booktitle, year
     }
@@ -62,8 +59,9 @@ public class AddInproceedingsCommandTest {
         this.addRefCmd.execute(); //this.app.listReferences().get(1).getField("author")
         assertEquals("someAuthor", this.app.listReferences().get(1).getField("author"));
         assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
-        assertEquals("someBooktitle", this.app.listReferences().get(1).getField("booktitle"));
+        assertEquals("someJournal", this.app.listReferences().get(1).getField("journal"));
         assertEquals("someYear", this.app.listReferences().get(1).getField("year"));
+        assertEquals("someVolume", this.app.listReferences().get(1).getField("volume"));
         assertEquals("someNote", this.app.listReferences().get(1).getField("note"));
     }
 }

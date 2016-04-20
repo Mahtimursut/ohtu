@@ -22,16 +22,14 @@ public class AddBookCommand extends AddReferenceCommand {
         BookReference newRef = new BookReference(referenceName);
         editorOrAuthorAsObligatoryField(newRef);
         super.fillReferenceFields(newRef);
-
         //save the reference
         app.newReference(newRef);
     }
     
-    public void editorOrAuthorAsObligatoryField(BookReference reference) {String command = io.readLine(
+    private void editorOrAuthorAsObligatoryField(BookReference reference) {String command = io.readLine(
             "\nDo you want author or editor as obligatory field?" +
                 "\n(a)uthor (default)" +
                 "\n(e)ditor\n\n");
-        
         //switch (reference type)
         switch(command){
             case "a":
