@@ -26,7 +26,7 @@ public class App {
         return references.listAll();
     }
         
-    public void generateBixTexFile() {
+    public void generateBixTexFile(String filename) {
         //convert all references to BibTeX-format
         StringBuilder bibtexStringBuilder = new StringBuilder();
         for (Reference r : this.references.listAll()) {
@@ -34,6 +34,6 @@ public class App {
             bibtexStringBuilder.append(refString);
         }
         //save String containing bibtex-references to File
-        FileUtil.Write("output.bst", bibtexStringBuilder.toString());
+        FileUtil.Write(filename, bibtexStringBuilder.toString());
     }
 }

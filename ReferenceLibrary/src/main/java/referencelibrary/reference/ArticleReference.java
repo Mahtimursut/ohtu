@@ -22,7 +22,9 @@ public class ArticleReference extends Reference {
         "pages",
         "month",
         "note",
-        "key",};
+        "key",
+        "publisher", //not in wikipedia listing of optionalFields for article
+        "address"}; //not in wikipedia listing of optionalFields for article
 
     /**
      * Creates a new article reference with given name

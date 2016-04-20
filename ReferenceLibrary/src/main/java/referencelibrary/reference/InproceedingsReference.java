@@ -15,7 +15,7 @@ public class InproceedingsReference extends Reference {
         "author",
         "title",
         "booktitle",
-        "volume",};
+        "year",};
     private final String[] optionalFields = { 
         "editor",
         "volume", //NOTE: volume/number
