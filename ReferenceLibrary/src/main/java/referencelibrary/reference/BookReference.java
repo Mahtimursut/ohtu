@@ -16,14 +16,15 @@ import static referencelibrary.reference.ReferenceType.REFERENCE_BOOK;
  * @author rimi
  */
 public class BookReference extends Reference {
-
-    private final String[] requiredFields = {
+    
+    private ArrayList<String> requiredFields = new ArrayList(Arrays.asList(
         "author",
-        "editor",
         "title",
         "publisher",
-        "year",};
+        "year"));
     private final String[] optionalFields = {
+        "author",
+        "editor",
         "volume",
         "number",
         "series",
@@ -38,13 +39,18 @@ public class BookReference extends Reference {
      *
      * @param referenceName
      */
+    public void setEditorAsObligatory() {
+        requiredFields.remove("author");
+        requiredFields.add(0, "editor");
+    } 
+    
     public BookReference(String referenceName) {
         super(REFERENCE_BOOK, referenceName);
     }
 
     @Override
     public List<String> getRequiredFields() {
-        return new ArrayList<>(Arrays.asList(requiredFields));
+        return requiredFields;
     }
 
     @Override

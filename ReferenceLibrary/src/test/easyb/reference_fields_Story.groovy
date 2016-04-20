@@ -11,7 +11,7 @@ description 'A reference is added with proper fields'
 
 scenario "book reference contains all required fields", {
     given 'adding a book is selected and reference info is typed', {
-        io = new StubIO("a", "b", "1", "2", "3", "4", "5", "6", "n", "q")
+        io = new StubIO("a", "b", "1", "a", "2", "3", "4", "5", "n", "q")
         app = new App(new StubDao())
         ui = new UI(io, app)
     }
@@ -24,14 +24,14 @@ scenario "book reference contains all required fields", {
         reflist = app.listReferences()
         fields = reflist.get(1).getFieldValues()
         ensure(fields) {
-            has([author:"2", editor:"3", title:"4", publisher:"5", year:"6"])
+            has([author:"2", title:"3", publisher:"4", year:"5"])
         }
     }
 }
 
 scenario "book reference contains given optional fields", {
     given 'adding a book is selected and reference info is typed', {
-        io = new StubIO("a", "b", "1", "2", "3", "4", "5", "6",
+        io = new StubIO("a", "b", "1", "e", "2", "3", "4", "5", 
                 "y", "a", "volume", "7", "a", "number", "8", "d",
                 "q")
         app = new App(new StubDao())
