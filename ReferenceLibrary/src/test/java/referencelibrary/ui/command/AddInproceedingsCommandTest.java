@@ -37,15 +37,15 @@ public class AddInproceedingsCommandTest {
      */
     private StubIO createStubIO() {
         StubIO stubIo = new StubIO(
-            "someId",
-            "someAuthor",
-            "someTitle",
-            "someBooktitle",
-            "someYear",
-            "y", //answers: "Would you like to add some optional fields?"
-            "a", //answers: (a)dd a field
-            "note",
-            "someNote"
+                "someId",
+                "someAuthor",
+                "someTitle",
+                "someBooktitle",
+                "someYear",
+                "y", //answers: "Would you like to add some optional fields?"
+                "a", //answers: (a)dd a field
+                "note",
+                "someNote"
         );
         return stubIo; //author, title, booktitle, year
     }
