@@ -74,7 +74,7 @@ abstract class AddReferenceCommand extends Command {
      * @param reference The Reference to which to add the fields
      */
     private void fillRequiredFields(Reference reference) {
-        reference.getRequiredFields().forEach(field -> reference.setField(field, promptForField(field)));
+        reference.getRequiredFields().getFields().forEach(field -> reference.setField(field, promptForField(field)));
     }
 
     /**
@@ -109,7 +109,7 @@ abstract class AddReferenceCommand extends Command {
      * @param reference The Reference for which to show the valid fields
      */
     private void showValidOptionalFields(Reference reference) {
-        reference.getOptionalFields().forEach(io::print);
+        reference.getOptionalFields().getFields().forEach(io::print);
     }
 
     /**

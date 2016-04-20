@@ -6,9 +6,8 @@
 package referencelibrary.reference;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * A general reference class for bibtex references.
@@ -22,16 +21,21 @@ public abstract class Reference implements Serializable {
 
     private final ReferenceType referenceType;
     private String referenceName;
+    private final Fields requiredFields;
+    private final Fields optionalFields;
     private final TreeMap<String, String> fieldValues;
 
     /**
-     * Creates a new reference of given type with given name
+     * Creates a new referece of given type with given name and fields
      *
      * @param referenceType
-     * 
+     * @param requiredFields
+     * @param optionalFields
      */
-    public Reference(ReferenceType referenceType) {
+    public Reference(ReferenceType referenceType, Fields requiredFields, Fields optionalFields) {
         this.referenceType = referenceType;
+        this.requiredFields = requiredFields;
+        this.optionalFields = optionalFields;
         this.fieldValues = new TreeMap<>();
     }
 
@@ -100,28 +104,32 @@ public abstract class Reference implements Serializable {
     }
 
     /**
-     * Returns a list of all required fields for this reference
+     * Returns required fields for this reference
      *
      * @return
      */
-    abstract public List<String> getRequiredFields();
+    public Fields getRequiredFields() {
+        return requiredFields;
+    }
 
     /**
-     * Returns a list of all optional fields for this reference
+     * Returns optional fields for this reference
      *
      * @return
      */
-    abstract public List<String> getOptionalFields();
+    public Fields getOptionalFields() {
+        return optionalFields;
+    }
 
     /**
-     * Returns a list of all possible fields for this reference
+     * Returns all possible fields for this reference
      *
      * @return list of fields
      */
-    public List<String> getAllFields() {
-        ArrayList<String> fields = new ArrayList<>();
-        fields.addAll(getRequiredFields());
-        fields.addAll(getOptionalFields());
+    public TreeSet<String> getAllFields() {
+        TreeSet<String> fields = new TreeSet<>();
+        fields.addAll(getRequiredFields().getFields());
+        fields.addAll(getOptionalFields().getFields());
         return fields;
     }
 
