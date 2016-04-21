@@ -71,6 +71,7 @@
                 <configuration>
                     <excludedClasses>
                         <param>referencelibrary.ui*</param>
+                        <param>referencelibrary.ReferenceLibrary</param>
                     </excludedClasses>
                 </configuration>
             </plugin>

@@ -18,12 +18,6 @@ public class StubIO implements IO {
         prints.add(toPrint);
     }
 
-    @Override
-    public int readInt(String prompt) {
-        print(prompt);
-        return Integer.parseInt(lines[i++]);
-    }
-
     public ArrayList<String> getPrints() {
         return prints;
     }

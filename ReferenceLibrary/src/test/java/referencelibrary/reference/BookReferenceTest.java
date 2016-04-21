@@ -22,7 +22,7 @@ import referencelibrary.reference.ReferenceType;
  */
 public class BookReferenceTest {
 
-    Reference reference = null;
+    BookReference reference = null;
 
     public BookReferenceTest() {
     }
@@ -90,6 +90,15 @@ public class BookReferenceTest {
         reference.setField("title", "Book of testing");
         reference.setField("note", "Contains various tests");
         assertEquals(expected, reference.toString());
+    }
+
+    @Test
+    public void removeAuthorFromRequiredFields() {
+        assertTrue(reference.getRequiredFields().contains("author"));
+        assertFalse(reference.getRequiredFields().contains("editor"));
+        reference.setEditorAsObligatory();
+        assertFalse(reference.getRequiredFields().contains("author"));
+        assertTrue(reference.getRequiredFields().contains("editor"));
     }
 
 }

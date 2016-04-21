@@ -2,7 +2,6 @@ package referencelibrary;
 
 import org.junit.Before;
 import org.junit.Test;
-import referencelibrary.data.ReferenceDao;
 import referencelibrary.data.StubDao;
 import referencelibrary.reference.BookReference;
 import referencelibrary.reference.Reference;
@@ -10,6 +9,7 @@ import referencelibrary.reference.Reference;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import referencelibrary.util.FileUtil;
 
 /**
  * Created by petri on 18.4.2016.
@@ -36,9 +36,12 @@ public class AppTest {
         assertEquals("REF", reflist.get(0).getReferenceName());
     }
 
-//    @Test
+    @Test
     public void generateBixTexFile() {
-        // TODO Test BibTex generation after adding support for dynamic BibTex file naming
+        String filename = "test_bibtex.bib";
+        app.generateBixTexFile(filename);
+        String result = FileUtil.Read(filename);
+        assertEquals("@Book{REF,\n}\n\n", result);
     }
 
 }
