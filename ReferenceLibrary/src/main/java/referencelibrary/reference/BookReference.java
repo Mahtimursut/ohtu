@@ -34,16 +34,16 @@ public class BookReference extends Reference {
         "note",
         "key",};
 
+    public void setEditorAsObligatory() {
+        requiredFields.remove("author");
+        requiredFields.add(0, "editor");
+    }
+
     /**
      * Creates a new book reference with given name
      *
      * @param referenceName
      */
-    public void setEditorAsObligatory() {
-        requiredFields.remove("author");
-        requiredFields.add(0, "editor");
-    } 
-    
     public BookReference(String referenceName) {
         super(REFERENCE_BOOK, referenceName);
     }
