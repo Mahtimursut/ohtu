@@ -1,6 +1,7 @@
 package referencelibrary.data;
 
 import referencelibrary.reference.Reference;
+import referencelibrary.util.DuplicateNameException;
 
 import java.util.List;
 
@@ -19,5 +20,5 @@ public interface ReferenceDao {
      * Adds a new Reference
      * @param reference Reference to be added
      */
-    void add(Reference reference);
+    void add(Reference reference) throws DuplicateNameException;
 }

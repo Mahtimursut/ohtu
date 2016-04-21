@@ -8,22 +8,18 @@ import referencelibrary.reference.Reference;
 /**
  * Created by petri on 16.4.2016.
  */
-public class AddBookCommand extends AddReferenceCommand {
+class AddBookCommand extends AddReferenceCommand {
 
-    public AddBookCommand(App app, IO io) {
+    AddBookCommand(App app, IO io) {
         super(app, io);
     }
 
     @Override
     public void execute() {
-        //prompt reference name
         String referenceName = io.readLine("Reference id");
-        
-        BookReference newRef = new BookReference(referenceName);
-        editorOrAuthorAsObligatoryField(newRef);
-        super.fillReferenceFields(newRef);
-        //save the reference
-        app.newReference(newRef);
+        BookReference reference = new BookReference(referenceName);
+        editorOrAuthorAsObligatoryField(reference);
+        super.addReference(reference);
     }
     
     private void editorOrAuthorAsObligatoryField(BookReference reference) {String command = io.readLine(

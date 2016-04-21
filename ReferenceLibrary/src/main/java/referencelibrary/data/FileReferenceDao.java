@@ -1,6 +1,7 @@
 package referencelibrary.data;
 
 import referencelibrary.reference.Reference;
+import referencelibrary.util.DuplicateNameException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -60,8 +61,11 @@ public class FileReferenceDao implements ReferenceDao {
     }
 
     @Override
-    public void add(Reference reference) {
+    public void add(Reference reference) throws DuplicateNameException {
+        if (references.contains(reference))
+            throw new DuplicateNameException("References already contain a reference with the given name.");
         references.add(reference);
+
         try {
             writeReferenceListToFile();
         } catch (IOException e) {

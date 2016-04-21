@@ -11,6 +11,8 @@ import java.util.List;
 import org.junit.After;
 
 import static org.junit.Assert.*;
+
+import referencelibrary.util.DuplicateNameException;
 import referencelibrary.util.FileUtil;
 
 /**
@@ -34,7 +36,7 @@ public class AppTest {
     }
 
     @Test
-    public void newReference() {
+    public void newReference() throws DuplicateNameException {
         app.newReference(new BookReference("REF1"));
         List<Reference> reflist = app.listReferences();
         assertEquals(2, reflist.size());

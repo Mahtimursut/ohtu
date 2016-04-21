@@ -15,6 +15,8 @@ import referencelibrary.App;
 import referencelibrary.data.StubDao;
 import referencelibrary.io.StubIO;
 import referencelibrary.reference.BookReference;
+import referencelibrary.util.DuplicateNameException;
+
 import static referencelibrary.reference.ReferenceType.REFERENCE_BOOK;
 
 /**
@@ -57,7 +59,7 @@ public class ShowReferencesCommandTest {
     }
     
     @Test
-    public void testShowNewReference() {
+    public void testShowNewReference() throws DuplicateNameException {
         this.showRefCmd = new ShowReferencesCommand(this.app, stubIO);
         app.newReference(new BookReference("asdasd"));
         this.showRefCmd.execute();

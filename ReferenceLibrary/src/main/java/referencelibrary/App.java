@@ -3,6 +3,7 @@ package referencelibrary;
 import referencelibrary.reference.Reference;
 import referencelibrary.data.ReferenceDao;
 import referencelibrary.util.BibTeXConverter;
+import referencelibrary.util.DuplicateNameException;
 import referencelibrary.util.FileUtil;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class App {
         this.references = references;
     }
 
-    public void newReference(Reference reference) {
+    public void newReference(Reference reference) throws DuplicateNameException {
         references.add(reference);
     }
 

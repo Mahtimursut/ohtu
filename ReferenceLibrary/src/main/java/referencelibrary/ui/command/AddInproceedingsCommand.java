@@ -10,21 +10,16 @@ import referencelibrary.reference.ReferenceType;
  *
  * @author juhapekm
  */
-public class AddInproceedingsCommand extends AddReferenceCommand{
+class AddInproceedingsCommand extends AddReferenceCommand{
 
-    public AddInproceedingsCommand(App app, IO io) {
+    AddInproceedingsCommand(App app, IO io) {
         super(app, io);
     }
     
     @Override
     public void execute() {
-        //prompt reference name
         String referenceName = io.readLine("Reference id");
-
-        Reference newRef = new InproceedingsReference(referenceName);
-        super.fillReferenceFields(newRef);
-
-        //save the reference
-        app.newReference(newRef);
+        Reference reference = new InproceedingsReference(referenceName);
+        super.addReference(reference);
     }
 }

@@ -26,10 +26,6 @@ public class ArticleReferenceTest {
         this.reference = new ArticleReference("my_article");
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void testConstructor() {
         reference = new ArticleReference("my_article");
@@ -39,55 +35,10 @@ public class ArticleReferenceTest {
     }
 
     @Test
-    public void testSetField() {
-        String fieldName = "author";
-        String expectedValue = "Risto Mikkola";
-        reference.setField(fieldName, expectedValue);
-        assertEquals(expectedValue, reference.getField(fieldName));
-
-        expectedValue = "Jukka-Pekka Moilanen";
-        reference.setField(fieldName, expectedValue);
-        assertEquals(expectedValue, reference.getField(fieldName));
-    }
-    
-    @Test
-    public void testSetFieldOptional() {
-        String fieldName = "note";
-        String expectedValue = "great edition";
-        reference.setField(fieldName, expectedValue);
-        assertEquals(expectedValue, reference.getField(fieldName));
-
-        expectedValue = "great edition indeed";
-        reference.setField(fieldName, expectedValue);
-        assertEquals(expectedValue, reference.getField(fieldName));
-    }
-
-    @Test
-    public void testGetField() {
-        String fieldName = "author";
-        String expectedValue = "Sami Sarsa";
-        assertNull(reference.getField(fieldName));
-        reference.setField(fieldName, expectedValue);
-        assertEquals(expectedValue, reference.getField(fieldName));
-    }
-
-    @Test
     public void testSetReferenceName() {
         String name = "newname";
         reference.setReferenceName(name);
         assertEquals(name, reference.getReferenceName());
-    }
-
-    @Test
-    public void testGetAllFields() {
-        List<String> expectedFields = new ArrayList<>();
-        expectedFields.addAll(reference.getRequiredFields());
-        expectedFields.addAll(reference.getOptionalFields());
-        List<String> fields = reference.getAllFields();
-
-        Collections.sort(expectedFields);
-        Collections.sort(fields);
-        assertEquals(expectedFields, fields);
     }
 
     @Test

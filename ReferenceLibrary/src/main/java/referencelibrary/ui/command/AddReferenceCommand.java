@@ -2,9 +2,8 @@ package referencelibrary.ui.command;
 
 import referencelibrary.App;
 import referencelibrary.io.IO;
-import referencelibrary.reference.BookReference;
 import referencelibrary.reference.Reference;
-import referencelibrary.reference.ReferenceType;
+import referencelibrary.util.DuplicateNameException;
 import referencelibrary.util.FieldValidator;
 
 /**
@@ -13,31 +12,37 @@ import referencelibrary.util.FieldValidator;
  *
  * @author juhapekm
  */
-public abstract class AddReferenceCommand extends Command {
+abstract class AddReferenceCommand extends Command {
 
     private FieldValidator fieldValidator;
 
-    public AddReferenceCommand(App app, IO io) {
+    AddReferenceCommand(App app, IO io) {
         super(app, io);
     }
 
-//    @Override
-//    public void execute() {
-//        //prompt reference name
-//        String referenceName = io.readLine("Reference id");
-//
-//        Reference newRef = new BookReference(referenceName);
-//        fillReferenceFields(newRef);
-//
-//        //save the reference
-//        app.newReference(newRef);
-//    }
+    /**
+     * Prompts for reference fields, checks for duplicate reference names and stores the reference.
+     * @param reference The Referce to add
+     */
+    void addReference(Reference reference) {
+        fillReferenceFields(reference);
+        while (true) {
+            try {
+                app.newReference(reference);
+                return;
+            } catch (DuplicateNameException e) {
+                String name = promptForNewReferenceName();
+                reference.setReferenceName(name);
+            }
+        }
+    }
+
     /**
      * Prompts for required fields and allows the user to add optional fields.
      *
      * @param reference The Reference to which to add fields
      */
-    protected void fillReferenceFields(Reference reference) {
+    private void fillReferenceFields(Reference reference) {
         this.fieldValidator = new FieldValidator(reference);
         fillRequiredFields(reference);
 
@@ -126,4 +131,9 @@ public abstract class AddReferenceCommand extends Command {
         return fieldValue;
     }
 
+    private String promptForNewReferenceName() {
+        io.print("A reference with the given reference id already exists.\n" +
+                "Please give another reference id for this reference:");
+        return io.readLine("id:");
+    }
 }
