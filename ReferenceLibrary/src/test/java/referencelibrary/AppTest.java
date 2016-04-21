@@ -1,5 +1,6 @@
 package referencelibrary;
 
+import java.io.File;
 import org.junit.Before;
 import org.junit.Test;
 import referencelibrary.data.StubDao;
@@ -7,6 +8,7 @@ import referencelibrary.reference.BookReference;
 import referencelibrary.reference.Reference;
 
 import java.util.List;
+import org.junit.After;
 
 import static org.junit.Assert.*;
 import referencelibrary.util.FileUtil;
@@ -15,11 +17,20 @@ import referencelibrary.util.FileUtil;
  * Created by petri on 18.4.2016.
  */
 public class AppTest {
+    private final String filename = "test_bibtex.bib";
     private App app;
 
     @Before
     public void setUp() {
         app = new App(new StubDao());
+        File testFile = new File(filename);
+        testFile.delete();
+    }
+
+    @After
+    public void tearDown() {
+        File testFile = new File(filename);
+        testFile.delete();
     }
 
     @Test
@@ -38,7 +49,6 @@ public class AppTest {
 
     @Test
     public void generateBixTexFile() {
-        String filename = "test_bibtex.bib";
         app.generateBixTexFile(filename);
         String result = FileUtil.Read(filename);
         assertEquals("@Book{REF,\n}\n\n", result);
