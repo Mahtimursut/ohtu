@@ -32,10 +32,10 @@ public class InproceedingsReference extends Reference {
     /**
      * Creates a new inproceedings reference with given name
      *
-     * @param referenceName
+     * 
      */
-    public InproceedingsReference(String referenceName) {
-        super(REFERENCE_INPROCEEDINGS, referenceName);
+    public InproceedingsReference() {
+        super(REFERENCE_INPROCEEDINGS);
     }
 
     @Override

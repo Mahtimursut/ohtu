@@ -31,7 +31,8 @@ public class StubDaoTest {
 
     @Test
     public void add() {
-        refs.add(new BookReference("REF1"));
+        refs.add(new BookReference());
+        refs.listAll().get(1).setReferenceName("REF1");
         List<Reference> reflist = refs.listAll();
         assertEquals("REF1", reflist.get(1).getReferenceName());
     }

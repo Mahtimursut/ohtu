@@ -17,8 +17,7 @@ class AddArticleCommand extends AddReferenceCommand {
 
     @Override
     public void execute() {
-        String referenceName = io.readLine("Reference id");
-        Reference reference = new ArticleReference(referenceName);
+        Reference reference = new ArticleReference();
         super.addReference(reference);
     }
 }

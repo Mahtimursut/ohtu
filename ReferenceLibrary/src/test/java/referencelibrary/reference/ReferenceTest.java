@@ -40,7 +40,7 @@ public class ReferenceTest {
 
     @Before
     public void setUp() throws Exception {
-        reference = (Reference)referenceClass.getDeclaredConstructor(String.class).newInstance("TestRef");
+        reference = (Reference)referenceClass.getDeclaredConstructor().newInstance();
     }
 
     @Test

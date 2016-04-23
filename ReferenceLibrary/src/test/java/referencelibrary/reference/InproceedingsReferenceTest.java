@@ -23,12 +23,14 @@ public class InproceedingsReferenceTest {
 
     @Before
     public void setUp() {
-        this.reference = new InproceedingsReference("my_inproceedings");
+        this.reference = new InproceedingsReference();
+        this.reference.setReferenceName("my_inproceedings");
     }
 
     @Test
     public void testConstructor() {
-        reference = new InproceedingsReference("my_inproceedings");
+        reference = new InproceedingsReference();
+        reference.setReferenceName("my_inproceedings");
         assertEquals("my_inproceedings", reference.getReferenceName());
         assertEquals(ReferenceType.REFERENCE_INPROCEEDINGS, reference.getReferenceType());
         assertTrue(reference.getFieldValues().isEmpty());

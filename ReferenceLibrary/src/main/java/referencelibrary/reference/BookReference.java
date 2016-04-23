@@ -42,10 +42,10 @@ public class BookReference extends Reference {
     /**
      * Creates a new book reference with given name
      *
-     * @param referenceName
+     * 
      */
-    public BookReference(String referenceName) {
-        super(REFERENCE_BOOK, referenceName);
+    public BookReference() {
+        super(REFERENCE_BOOK);
     }
 
     @Override

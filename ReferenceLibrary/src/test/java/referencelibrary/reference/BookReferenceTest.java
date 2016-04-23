@@ -29,12 +29,14 @@ public class BookReferenceTest {
 
     @Before
     public void setUp() {
-        this.reference = new BookReference("my_book");
+        this.reference = new BookReference();
+        this.reference.setReferenceName("my_book");
     }
 
     @Test
     public void testConstructor() {
-        reference = new BookReference("my_book");
+        reference = new BookReference();
+        reference.setReferenceName("my_book");
         assertEquals("my_book", reference.getReferenceName());
         assertEquals(ReferenceType.REFERENCE_BOOK, reference.getReferenceType());
         assertTrue(reference.getFieldValues().isEmpty());

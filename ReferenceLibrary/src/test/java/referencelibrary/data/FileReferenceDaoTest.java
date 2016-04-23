@@ -24,7 +24,8 @@ public class FileReferenceDaoTest {
     @Before
     public void setUp() throws Exception {
         refs = new FileReferenceDao("references_test");
-        reference = new BookReference("TEST");
+        reference = new BookReference();
+        reference.setReferenceName("TEST");
     }
 
     @After
@@ -41,7 +42,7 @@ public class FileReferenceDaoTest {
 
     @Test
     public void correctNumberOfReferencesReturnedAfterAddition() throws DuplicateNameException {
-        Reference reference2 = new BookReference("TEST2");
+        Reference reference2 = new BookReference();
         refs.add(reference);
         refs.add(reference2);
         List<Reference> references = refs.listAll();
@@ -65,7 +66,8 @@ public class FileReferenceDaoTest {
 
     @Test
     public void referenceWithDuplicateNameNotStored() {
-        Reference duplicate = new BookReference("TEST");
+        Reference duplicate = new BookReference();
+        duplicate.setReferenceName("TEST");
         try {
             refs.add(reference);
             refs.add(duplicate);
@@ -77,7 +79,8 @@ public class FileReferenceDaoTest {
 
     @Test(expected=DuplicateNameException.class)
     public void additionOfReferenceWithDuplicateNameThrowsException() throws DuplicateNameException {
-        Reference duplicate = new BookReference("TEST");
+        Reference duplicate = new BookReference();
+        duplicate.setReferenceName("TEST");
         refs.add(reference);
         refs.add(duplicate);
     }

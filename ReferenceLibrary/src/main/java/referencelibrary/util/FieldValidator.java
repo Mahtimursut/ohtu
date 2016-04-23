@@ -5,6 +5,7 @@
  */
 package referencelibrary.util;
 
+import java.util.List;
 import referencelibrary.reference.Reference;
 
 /**
@@ -32,6 +33,13 @@ public class FieldValidator {
         if (fieldValue.isEmpty()) {
             System.out.println("Field value must not be empty");
             return false;
+        }
+        return true;
+    }
+    
+    public boolean ReferenceNameIsUnique(String referenceName, List<Reference> referenceList) {
+        for (Reference reference : referenceList) {
+            if(reference.getReferenceName().equals(referenceName)) return false;
         }
         return true;
     }

@@ -37,8 +37,9 @@ public class AppTest {
 
     @Test
     public void newReference() throws DuplicateNameException {
-        app.newReference(new BookReference("REF1"));
+        app.newReference(new BookReference());
         List<Reference> reflist = app.listReferences();
+        reflist.get(1).setReferenceName("REF1");
         assertEquals(2, reflist.size());
         assertEquals("REF1", reflist.get(1).getReferenceName());
     }

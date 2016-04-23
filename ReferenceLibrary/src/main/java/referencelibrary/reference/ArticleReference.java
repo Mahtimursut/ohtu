@@ -29,10 +29,10 @@ public class ArticleReference extends Reference {
     /**
      * Creates a new article reference with given name
      *
-     * @param referenceName
+     * 
      */
-    public ArticleReference(String referenceName) {
-        super(REFERENCE_ARTICLE, referenceName);
+    public ArticleReference() {
+        super(REFERENCE_ARTICLE);
     }
 
     @Override

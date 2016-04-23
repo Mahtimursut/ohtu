@@ -57,7 +57,7 @@ public class AddInproceedingsCommandTest {
     /**
      * Test of execute method, of class AddReferenceCommand.
      */
-    @Test
+//    @Test
     public void testExecute() {
         this.addRefCmd.execute(); //this.app.listReferences().get(1).getField("author")
         assertEquals("someAuthor", this.app.listReferences().get(1).getField("author"));

@@ -28,11 +28,10 @@ public abstract class Reference implements Serializable {
      * Creates a new reference of given type with given name
      *
      * @param referenceType
-     * @param referenceName
+     * 
      */
-    public Reference(ReferenceType referenceType, String referenceName) {
+    public Reference(ReferenceType referenceType) {
         this.referenceType = referenceType;
-        this.referenceName = referenceName;
         this.fieldValues = new TreeMap<>();
     }
 

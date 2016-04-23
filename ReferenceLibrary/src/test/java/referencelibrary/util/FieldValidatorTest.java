@@ -5,6 +5,7 @@
  */
 package referencelibrary.util;
 
+import java.util.ArrayList;
 import referencelibrary.reference.Reference;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,7 +14,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import referencelibrary.reference.BookReference;
-import referencelibrary.util.BibTeXConverter;
 
 /**
  *
@@ -36,7 +36,8 @@ public class FieldValidatorTest {
     
     @Before
     public void setUp() {
-        reference = new BookReference("a book");
+        reference = new BookReference();
+        reference.setReferenceName("book");
         fieldValidator = new FieldValidator(reference);
     }
     
@@ -55,5 +56,13 @@ public class FieldValidatorTest {
     public void testFieldValueIsValid() {
         assertEquals(false, fieldValidator.fieldValueIsValid(""));
         assertEquals(true, fieldValidator.fieldValueIsValid("yay123"));
+    }
+    
+    @Test
+    public void testRefereceNameIsUnique() {
+        ArrayList<Reference> references = new ArrayList();
+        references.add(reference);
+        assertEquals(true, fieldValidator.ReferenceNameIsUnique("newBook", references));
+        assertEquals(false, fieldValidator.ReferenceNameIsUnique("book", references));
     }
 }

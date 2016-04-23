@@ -61,12 +61,11 @@ public class ShowReferencesCommandTest {
     @Test
     public void testShowNewReference() throws DuplicateNameException {
         this.showRefCmd = new ShowReferencesCommand(this.app, stubIO);
-        app.newReference(new BookReference("asdasd"));
+        app.newReference(new BookReference());
+        app.listReferences().get(1).setReferenceName("book");
         this.showRefCmd.execute();
-        assertEquals(true, stubIO.getPrints().contains("[Book: asdasd]"));
+        assertEquals(true, stubIO.getPrints().contains("[Book: book]"));
         assertEquals(2, stubIO.getPrints().size());
     }
-    
-    
-    
+
 }

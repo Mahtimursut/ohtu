@@ -36,7 +36,8 @@ public class BibTeXConverterTest {
     
     @Before
     public void setUp() {
-        reference = new BookReference("a book");
+        reference = new BookReference();
+        reference.setReferenceName("a book");
         reference.setField("author", "human");
         reference.setField("title", "Yay!");
     }

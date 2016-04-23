@@ -15,7 +15,8 @@ public class StubDao implements ReferenceDao {
 
     public StubDao() {
         refs = new ArrayList<>();
-        Reference ref = new BookReference("REF");
+        Reference ref = new BookReference();
+        ref.setReferenceName("REF");
         refs.add(ref);
     }
 

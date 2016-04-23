@@ -18,8 +18,7 @@ class AddInproceedingsCommand extends AddReferenceCommand{
     
     @Override
     public void execute() {
-        String referenceName = io.readLine("Reference id");
-        Reference reference = new InproceedingsReference(referenceName);
+        Reference reference = new InproceedingsReference();
         super.addReference(reference);
     }
 }

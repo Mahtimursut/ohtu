@@ -16,8 +16,7 @@ class AddBookCommand extends AddReferenceCommand {
 
     @Override
     public void execute() {
-        String referenceName = io.readLine("Reference id");
-        BookReference reference = new BookReference(referenceName);
+        BookReference reference = new BookReference();
         editorOrAuthorAsObligatoryField(reference);
         super.addReference(reference);
     }
