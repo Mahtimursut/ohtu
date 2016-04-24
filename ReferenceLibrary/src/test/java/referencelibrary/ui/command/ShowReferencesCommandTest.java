@@ -17,7 +17,6 @@ import referencelibrary.io.StubIO;
 import referencelibrary.reference.BookReference;
 import referencelibrary.util.DuplicateNameException;
 
-import static referencelibrary.reference.ReferenceType.REFERENCE_BOOK;
 
 /**
  *

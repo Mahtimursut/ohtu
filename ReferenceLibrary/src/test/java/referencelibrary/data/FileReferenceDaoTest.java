@@ -7,8 +7,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
 import referencelibrary.reference.BookReference;

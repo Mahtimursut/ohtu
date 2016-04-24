@@ -3,7 +3,6 @@ package referencelibrary.ui.command;
 import referencelibrary.App;
 import referencelibrary.io.IO;
 import referencelibrary.reference.BookReference;
-import referencelibrary.reference.Reference;
 
 /**
  * Created by petri on 16.4.2016.

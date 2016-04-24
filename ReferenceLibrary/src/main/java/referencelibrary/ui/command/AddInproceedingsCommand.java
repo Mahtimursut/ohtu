@@ -4,7 +4,6 @@ import referencelibrary.App;
 import referencelibrary.io.IO;
 import referencelibrary.reference.InproceedingsReference;
 import referencelibrary.reference.Reference;
-import referencelibrary.reference.ReferenceType;
 
 /**
  *

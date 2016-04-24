@@ -1,7 +1,6 @@
 package referencelibrary.util;
 
 import referencelibrary.reference.Reference;
-import java.util.HashMap;
 
 /**
  * A class for converting references to BibTeX format
