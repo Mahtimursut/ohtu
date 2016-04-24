@@ -2,7 +2,6 @@ package referencelibrary.reference;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.Classes;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -78,13 +77,11 @@ public class ReferenceTest {
 
     @Test
     public void testGetAllFields() {
-        List<String> expectedFields = new ArrayList<>();
-        expectedFields.addAll(reference.getRequiredFields());
-        expectedFields.addAll(reference.getOptionalFields());
-        List<String> fields = reference.getAllFields();
+        TreeSet<String> expectedFields = new TreeSet<>();
+        expectedFields.addAll(reference.getRequiredFields().getFields());
+        expectedFields.addAll(reference.getOptionalFields().getFields());
+        TreeSet<String> fields = reference.getAllFields();
 
-        Collections.sort(expectedFields);
-        Collections.sort(fields);
         assertEquals(expectedFields, fields);
     }
 

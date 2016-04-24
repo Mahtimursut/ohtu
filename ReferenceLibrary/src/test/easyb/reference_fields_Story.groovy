@@ -24,7 +24,7 @@ scenario "book reference contains all required fields", {
         reflist = app.listReferences()
         fields = reflist.get(1).getFieldValues()
         ensure(fields) {
-            has([author:"2", title:"3", publisher:"4", year:"5"])
+            has([author:"2", publisher:"3", title:"4", year:"5"])
         }
     }
 }

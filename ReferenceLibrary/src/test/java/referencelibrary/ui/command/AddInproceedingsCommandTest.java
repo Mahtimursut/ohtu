@@ -39,8 +39,8 @@ public class AddInproceedingsCommandTest {
         StubIO stubIo = new StubIO(
                 "someId",
                 "someAuthor",
-                "someTitle",
                 "someBooktitle",
+                "someTitle",
                 "someYear",
                 "y", //answers: "Would you like to add some optional fields?"
                 "a", //answers: (a)dd a field
@@ -61,9 +61,9 @@ public class AddInproceedingsCommandTest {
     public void testExecute() {
         this.addRefCmd.execute(); //this.app.listReferences().get(1).getField("author")
         assertEquals("someAuthor", this.app.listReferences().get(1).getField("author"));
-        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
         assertEquals("someBooktitle", this.app.listReferences().get(1).getField("booktitle"));
-        assertEquals("someYear", this.app.listReferences().get(1).getField("year"));
         assertEquals("someNote", this.app.listReferences().get(1).getField("note"));
+        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
+        assertEquals("someYear", this.app.listReferences().get(1).getField("year"));
     }
 }

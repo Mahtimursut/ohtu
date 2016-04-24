@@ -35,10 +35,10 @@ public class AddArticleCommandTest {
         StubIO stubIo = new StubIO(
                 "someId",
                 "someAuthor",
-                "someTitle",
                 "someJournal",
-                "someYear",
+                "someTitle",
                 "someVolume",
+                "someYear",
                 "y", //answers: "Would you like to add some optional fields?"
                 "a", //answers: (a)dd a field
                 "note",
@@ -58,10 +58,10 @@ public class AddArticleCommandTest {
     public void testExecute() {
         this.addRefCmd.execute(); //this.app.listReferences().get(1).getField("author")
         assertEquals("someAuthor", this.app.listReferences().get(1).getField("author"));
-        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
         assertEquals("someJournal", this.app.listReferences().get(1).getField("journal"));
-        assertEquals("someYear", this.app.listReferences().get(1).getField("year"));
-        assertEquals("someVolume", this.app.listReferences().get(1).getField("volume"));
         assertEquals("someNote", this.app.listReferences().get(1).getField("note"));
+        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
+        assertEquals("someVolume", this.app.listReferences().get(1).getField("volume"));
+        assertEquals("someYear", this.app.listReferences().get(1).getField("year"));
     }
 }

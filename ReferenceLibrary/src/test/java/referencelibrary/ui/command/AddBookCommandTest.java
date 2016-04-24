@@ -35,8 +35,8 @@ public class AddBookCommandTest {
                 "someId",
                 "a",
                 "someAuthor",
-                "someTitle",
                 "somePublisher",
+                "someTitle",
                 "someYear",
                 "y", //answers: "Would you like to add some optional fields?"
                 "a", //answers: (a)dd a field
@@ -53,8 +53,8 @@ public class AddBookCommandTest {
                 "someId",
                 "e",
                 "someEditor",
-                "someTitle",
                 "somePublisher",
+                "someTitle",
                 "someYear",
                 "n"
         );
@@ -73,8 +73,8 @@ public class AddBookCommandTest {
         this.addRefCmd = new AddBookCommand(this.app, createStubIO());
         this.addRefCmd.execute(); //this.app.listReferences().get(1).getField("author")
         assertEquals("someAuthor", this.app.listReferences().get(1).getField("author"));
-        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
         assertEquals("somePublisher", this.app.listReferences().get(1).getField("publisher"));
+        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
         assertEquals("someYear", this.app.listReferences().get(1).getField("year"));
         assertEquals("someNote", this.app.listReferences().get(1).getField("note"));
     }
@@ -84,8 +84,8 @@ public class AddBookCommandTest {
         this.addRefCmd = new AddBookCommand(this.app, createStubIOWithEditor());
         this.addRefCmd.execute(); //this.app.listReferences().get(1).getField("author")
         assertEquals("someEditor", this.app.listReferences().get(1).getField("editor"));
-        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
         assertEquals("somePublisher", this.app.listReferences().get(1).getField("publisher"));
+        assertEquals("someTitle", this.app.listReferences().get(1).getField("title"));
         assertEquals("someYear", this.app.listReferences().get(1).getField("year"));
     }
 
