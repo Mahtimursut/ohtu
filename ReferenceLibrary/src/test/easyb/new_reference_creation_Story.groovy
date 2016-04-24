@@ -132,7 +132,7 @@ scenario "Multiple new references can be added to system", {
             "n",
 
             "g",
-            "sigproc.bib",
+            "sigproc",
             "q")	
         app = new App(new StubDao())
         ui = new UI(io, app)

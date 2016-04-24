@@ -125,6 +125,7 @@ public abstract class Reference implements Serializable {
         return fields;
     }
 
+    @Override
     public boolean equals(Object object) {
         return object instanceof Reference && ((Reference) object).referenceName.equals(this.referenceName);
     }

@@ -19,6 +19,14 @@ public interface ReferenceDao {
     /**
      * Adds a new Reference
      * @param reference Reference to be added
+     * @throws referencelibrary.util.DuplicateNameException
      */
     void add(Reference reference) throws DuplicateNameException;
+
+    /**
+     * Removes a references of given name
+     *
+     * @param referenceName
+     */
+    void remove(String referenceName);
 }

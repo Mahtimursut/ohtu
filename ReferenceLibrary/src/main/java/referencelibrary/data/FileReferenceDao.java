@@ -86,4 +86,15 @@ public class FileReferenceDao implements ReferenceDao {
             oos.flush();
         }
     }
+
+    @Override
+    public void remove(String referenceName) {
+        if (references.removeIf(r -> r.getReferenceName().equals(referenceName))) {
+            try {
+                writeReferenceListToFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

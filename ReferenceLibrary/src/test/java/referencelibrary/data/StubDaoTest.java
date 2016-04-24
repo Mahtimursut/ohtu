@@ -5,8 +5,6 @@ import org.junit.Test;
 import referencelibrary.reference.BookReference;
 import referencelibrary.reference.Reference;
 
-import java.sql.Ref;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -35,6 +33,24 @@ public class StubDaoTest {
         refs.listAll().get(1).setReferenceName("REF1");
         List<Reference> reflist = refs.listAll();
         assertEquals("REF1", reflist.get(1).getReferenceName());
+    }
+
+    @Test
+    public void remove() {
+        String referenceName = "remove_me";
+        List<Reference> reflist;
+
+        Reference ref = new BookReference();
+        ref.setReferenceName(referenceName);
+        refs.add(ref);
+
+        reflist = refs.listAll();
+        assertEquals(referenceName, reflist.get(1).getReferenceName());
+
+        refs.remove(referenceName);
+        reflist = refs.listAll();
+        assertEquals(1, reflist.size());
+        assertNotEquals(referenceName, reflist.get(0).getReferenceName());
     }
 
 }

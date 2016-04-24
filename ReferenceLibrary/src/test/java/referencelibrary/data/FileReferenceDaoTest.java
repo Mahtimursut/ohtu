@@ -1,14 +1,14 @@
 package referencelibrary.data;
 
 import referencelibrary.reference.Reference;
-import referencelibrary.data.FileReferenceDao;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
 import referencelibrary.reference.BookReference;
@@ -83,5 +83,42 @@ public class FileReferenceDaoTest {
         duplicate.setReferenceName("TEST");
         refs.add(reference);
         refs.add(duplicate);
+    }
+
+    @Test
+    public void removeRemovesExistingReferenceOfGivenName() {
+        final String removeMe = "removeMe";
+        String[] referenceNames = {"test1", removeMe, "test2"};
+
+        try {
+            for (String referenceName : referenceNames) {
+                Reference ref = new BookReference();
+                ref.setReferenceName(referenceName);
+                refs.add(ref);
+            }
+        } catch (DuplicateNameException ex) {
+            fail("normal reference add failed");
+        }
+
+        refs.remove(removeMe);
+        List<Reference> reflist = refs.listAll();
+        for (Reference reference1 : reflist) {
+            assertNotEquals(removeMe, reference1.getReferenceName());
+        }
+        assertEquals(2, reflist.size());
+    }
+
+    @Test
+    public void removeDoesNothingWhenNonexistingReferenceNameGiven() {
+        final String removeMe = "removeMe";
+
+        try {
+            refs.add(reference);
+        } catch (DuplicateNameException ex) {
+            fail("normal reference add failed");
+        }
+
+        refs.remove(removeMe);
+        assertEquals(1, refs.listAll().size());
     }
 }

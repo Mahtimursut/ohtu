@@ -29,4 +29,9 @@ public class StubDao implements ReferenceDao {
     public void add(Reference reference) {
         refs.add(reference);
     }
+
+    @Override
+    public void remove(String referenceName) {
+        refs.removeIf(r -> r.getReferenceName().equals(referenceName));
+    }
 }
