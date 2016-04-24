@@ -84,6 +84,20 @@ public class FileReferenceDaoTest {
     }
 
     @Test
+    public void duplicateNameCheckShouldBeCaseInsensitive() {
+        Reference duplicate = new BookReference();
+        duplicate.setReferenceName("test");
+        try {
+            refs.add(reference);
+            refs.add(duplicate);
+            fail("Exception was not thrown when adding a reference with a duplicate name" +
+                    "but different case");
+        } catch (DuplicateNameException e) {
+            assertEquals(1, refs.listAll().size());
+        }
+    }
+
+    @Test
     public void removeRemovesExistingReferenceOfGivenName() {
         final String removeMe = "removeMe";
         String[] referenceNames = {"test1", removeMe, "test2"};
