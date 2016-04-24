@@ -26,7 +26,7 @@ public abstract class Reference implements Serializable {
     private final TreeMap<String, String> fieldValues;
 
     /**
-     * Creates a new referece of given type with given name and fields
+     * Creates a new reference with given type and fields
      *
      * @param referenceType
      * @param requiredFields
