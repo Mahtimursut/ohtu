@@ -57,4 +57,10 @@ public class AppTest {
         assertEquals("@Book{REF,\n}\n\n", result);
     }
 
+    @Test
+    public void removeReferenceRemovesReferences() {
+        app.removeReference("REF");
+        assertTrue(app.listReferences().isEmpty());
+    }
+
 }

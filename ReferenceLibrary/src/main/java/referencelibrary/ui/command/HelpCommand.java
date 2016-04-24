@@ -17,6 +17,7 @@ public class HelpCommand extends Command {
         io.print("(q)uit," + "\n" +
                 "(a)dd new reference," + "\n" +
                 "(g)enerate bibtex" + "\n" +
-                "(s)how references" + "\n");
+                "(s)how references" + "\n" +
+                "(r)emove reference" + "\n");
     }
 }

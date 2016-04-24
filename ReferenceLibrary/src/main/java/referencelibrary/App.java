@@ -37,4 +37,13 @@ public class App {
         //save String containing bibtex-references to File
         FileUtil.Write(filename, bibtexStringBuilder.toString());
     }
+
+    /**
+     * Removes references with given name
+     *
+     * @param referenceName
+     */
+    public void removeReference(String referenceName) {
+        references.remove(referenceName);
+    }
 }

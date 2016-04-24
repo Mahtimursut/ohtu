@@ -41,6 +41,9 @@ public class UI {
                 case "s":
                     commands.getCommand(SHOW_REFERENCES_COMMAND).execute();
                     break;
+                case "r":
+                    commands.getCommand(REMOVE_REFERENCE_COMMAND).execute();
+                    break;
             }
             //new command
             commands.getCommand(HELP_COMMAND).execute();
