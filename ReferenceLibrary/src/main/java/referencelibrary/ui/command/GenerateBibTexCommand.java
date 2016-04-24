@@ -8,6 +8,8 @@ import referencelibrary.io.IO;
  */
 public class GenerateBibTexCommand extends Command {
 
+    private static final String BIBTEX_FILE_ENDING = ".bib";
+
     public GenerateBibTexCommand(App app, IO io) {
         super(app, io);
     }
@@ -16,7 +18,7 @@ public class GenerateBibTexCommand extends Command {
     public void execute() {
         io.print("\nGenerating bibTex -file");
         String filename = io.readLine("Please insert filename:");
-        app.generateBixTexFile(filename);
+        app.generateBixTexFile(filename+BIBTEX_FILE_ENDING);
 
         io.print("Generating done!\n");
     }
