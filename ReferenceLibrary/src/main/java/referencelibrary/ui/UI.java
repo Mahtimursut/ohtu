@@ -25,10 +25,11 @@ public class UI {
     }
     
     public void run() {
-        io.print("Reference library");
+        io.print("Reference library" + "\n");
         commands.getCommand(HELP_COMMAND).execute();
         String command = "q";
-        command = io.readLine("Choose command: \n");
+        command = io.readLine("Choose command:");
+        io.print("");
         while(!command.equals("q")) {
             //call chosen functionality
             switch (command){
@@ -46,8 +47,10 @@ public class UI {
                     break;
             }
             //new command
+            io.print("");
             commands.getCommand(HELP_COMMAND).execute();
-            command = io.readLine("Choose command: \n");
+            command = io.readLine("Choose command:");
+            io.print("");
         }
         io.print("Program closing..");
     }
@@ -64,7 +67,8 @@ public class UI {
                 "\n(b)ook, " +
                 "\n(a)rticle, " +
                 "\n(i)nproceedings, " +
-                "\n(o)ther\n\n");
+                "\n(o)ther" +
+                "\n\nChoose:");
         
         //switch (reference type)
         switch(command){

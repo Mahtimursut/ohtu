@@ -16,10 +16,9 @@ public class GenerateBibTexCommand extends Command {
 
     @Override
     public void execute() {
-        io.print("\nGenerating bibTex -file");
+        io.print("Generating bibTex -file");
         String filename = io.readLine("Please insert filename:");
         app.generateBixTexFile(filename+BIBTEX_FILE_ENDING);
-
-        io.print("Generating done!\n");
+        io.print("Generating done!");
     }
 }

@@ -42,6 +42,8 @@ public class ShowReferencesCommandTest {
     @Before
     public void setUp() {
         this.app = new App(new StubDao());
+        this.app.listReferences().get(0).setField("author", "Test Author");
+        this.app.listReferences().get(0).setField("title", "Some test title");
         this.stubIO = new StubIO("s");
     }
 
@@ -53,18 +55,20 @@ public class ShowReferencesCommandTest {
     public void testExecute() {
         this.showRefCmd = new ShowReferencesCommand(this.app, stubIO);
         this.showRefCmd.execute();
-        assertEquals("[Book: REF]", stubIO.getPrints().get(0));
-        assertEquals(1, stubIO.getPrints().size());
+        assertEquals("[REF] Test Author: Some test title", stubIO.getPrints().get(2));
+        assertEquals(3, stubIO.getPrints().size());
     }
     
     @Test
     public void testShowNewReference() throws DuplicateNameException {
         this.showRefCmd = new ShowReferencesCommand(this.app, stubIO);
         app.newReference(new BookReference());
-        app.listReferences().get(1).setReferenceName("book");
+        app.listReferences().get(1).setReferenceName("TestName");
+        app.listReferences().get(1).setField("author", "New Test Author");
+        app.listReferences().get(1).setField("title", "New Test Title");
         this.showRefCmd.execute();
-        assertEquals(true, stubIO.getPrints().contains("[Book: book]"));
-        assertEquals(2, stubIO.getPrints().size());
+        assertEquals(true, stubIO.getPrints().contains("[TestName] New Test Author: New Test Title"));
+        assertEquals(4, stubIO.getPrints().size());
     }
 
 }

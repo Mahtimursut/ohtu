@@ -14,6 +14,8 @@ public class ShowReferencesCommand extends Command {
 
     @Override
     public void execute() {
-        app.listReferences().forEach(reference -> io.print(reference.toString()));
+        io.print("[Ref. id] Author: Title");
+        io.print("-------------");
+        app.listReferences().forEach(reference -> io.print(reference.getNameAndAuthorOrEditorAndTitle()));
     }
 }
