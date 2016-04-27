@@ -15,6 +15,7 @@ import referencelibrary.App;
 import referencelibrary.data.StubDao;
 import referencelibrary.io.StubIO;
 import referencelibrary.reference.BookReference;
+import referencelibrary.reference.Reference;
 import referencelibrary.util.DuplicateNameException;
 
 
@@ -71,4 +72,21 @@ public class ShowReferencesCommandTest {
         assertEquals(4, stubIO.getPrints().size());
     }
 
+    @Test
+    public void bookRequiringEditorShouldShowEditor() throws Exception {
+        BookReference ref = new BookReference();
+        ref.setEditorAsObligatory();
+        ref.setReferenceName("TestName");
+        ref.setField("editor", "Test Editor");
+        ref.setField("title", "Test Title");
+        app.newReference(ref);
+        new ShowReferencesCommand(this.app, stubIO).execute();
+        assertEquals("[TestName] Test Editor: Test Title", stubIO.getPrints().get(3));
+    }
+
+    @Test
+    public void referenceWithoutTitleShouldReturnEmptyStringAsTitle() throws Exception {
+        Reference ref = new BookReference();
+        assertEquals("", ref.getTitle());
+    }
 }

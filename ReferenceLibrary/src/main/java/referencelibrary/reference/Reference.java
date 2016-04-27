@@ -126,7 +126,7 @@ public abstract class Reference implements Serializable {
      *
      * @return titleAndAuthor
      */
-    public String getNameAndAuthorOrEditorAndTitle() {
+    public String getReferenceAsFormattedText() {
         return "[" + getReferenceName() + "] " + getAuthorOrEditor() + ": " + getTitle();
     }
     
@@ -154,9 +154,9 @@ public abstract class Reference implements Serializable {
     public String getTitle() {
         if (fieldValues.get("title")!=null) {
             return fieldValues.get("title");
-        } else {
-            return "";
         }
+
+        return "";
     }
     
     /**
