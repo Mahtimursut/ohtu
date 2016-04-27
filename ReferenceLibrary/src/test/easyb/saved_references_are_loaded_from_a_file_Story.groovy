@@ -23,7 +23,7 @@ scenario "New reference is created and saved in a file", {
             "n", 
             "s",
             "q")
-        app = new App(new FileReferenceDao("saved_references"))
+        app = new App(new FileReferenceDao("test_references"))
         ui = new UI(io, app)
     }
     when 'reference is created and show command selected', {
@@ -39,7 +39,7 @@ scenario "Created reference is loaded from a file", {
         io = new StubIO(
             "s",
             "q")
-        app = new App(new FileReferenceDao("saved_references"))
+        app = new App(new FileReferenceDao("test_references"))
         ui = new UI(io, app)
     }
     when 'show command is selected', {
@@ -47,7 +47,8 @@ scenario "Created reference is loaded from a file", {
     }
     then 'the previously added reference is found', {
         io.getPrints().shouldHave("[name] author: title")
-        // remove created reference
-        app.removeReference("name")
+        // remove the the file and references with it created in previous scenario
+        File testFile = new File("test_references");
+        testFile.delete();
     }
 }
