@@ -3,7 +3,7 @@ import referencelibrary.io.StubIO
 import referencelibrary.ui.UI
 import referencelibrary.ui.UI.*
 import referencelibrary.data.StubDao
-import java.io.File;
+import java.io.*;
 import java.nio.file.Files;
 
 description 'A new reference with finnish characters can be added to referencelibrary'
@@ -59,7 +59,11 @@ scenario "Finnish characters in generated BibTeX file have been formatted", {
 
     then 'BibTeX file has correctly formatted characters', {
         File f = new File("test_file.bib");
-        Arrays.asList(Files.lines(f.toPath()).toArray()).shouldHave(' author    = {\\"{a}uth\\"{o}r},')
+        try {
+            Arrays.asList(Files.lines(f.toPath()).toArray()).shouldHave(' author    = {\\"{a}uth\\"{o}r},')
+        } catch (IOException e) {
+            fail e.getStackTrace.toString()
+        }
         f.delete()
     }
 }
