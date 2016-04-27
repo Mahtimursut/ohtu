@@ -69,6 +69,15 @@ public class BibTeXConverterTest {
     }
     
     @Test
+    public void testScandicConversion() {
+        assertEquals(BibTeXConverter.stringToBibtexFormat("äÄ"), "\\\"{a}\\\"{A}");
+        assertEquals(BibTeXConverter.stringToBibtexFormat("öÖ"), "\\\"{o}\\\"{O}");
+        assertEquals(BibTeXConverter.stringToBibtexFormat("åÅ"), "\\r{a}\\r{A}");        
+        //assertEquals(BibTeXConverter.stringToBibtexFormat("äåö"), "\\\"{a}\\\"{o}\\r{a}");
+
+    }
+    
+    @Test
     public void hiivatinLineCoverage() {
         Object o = new BibTeXConverter();
     }

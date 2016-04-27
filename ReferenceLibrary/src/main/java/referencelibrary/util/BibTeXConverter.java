@@ -25,20 +25,30 @@ public class BibTeXConverter {
         //fields
         for (String s : r.getFieldValues().keySet()) {
             s = s.trim();
-            sb.append(" ").append(s);
+            sb.append(" ").append(stringToBibtexFormat(s));
             //add whitespace
             for (int i = 0; i < longestKeyLength - s.length(); i++) {
                 sb.append(" ");
             }
 
-            sb.append(" = {").append(r.getFieldValues().get(s))
+            sb.append(" = {").append(stringToBibtexFormat(r.getFieldValues().get(s)))
                     .append("},\n");
         }
         //end
         sb.append("}\n\n");
         return sb.toString();
     }
-
+    /**
+     * Converts a string (field) to bibtex format
+     * Conversions include:
+     * -conversion of scandinavic letters ä, ö, å 
+     * @param s
+     * @return formattedS
+     */
+    public static String stringToBibtexFormat(String s) {
+        return convertScandicLetters(s);
+    }
+    
     public static int getLongestKeyLength(Reference r) {
         int longest = 0;
         for (String s : r.getFieldValues().keySet()) {
@@ -47,5 +57,12 @@ public class BibTeXConverter {
             }
         }
         return longest;
+    }
+    
+    private static String convertScandicLetters(String s) {
+        s = s.replace("ä", "\\\"{a}").replace("Ä", "\\\"{A}");
+        s = s.replace("ö", "\\\"{o}").replace("Ö", "\\\"{O}");
+        s = s.replace("å", "\\r{a}").replace("Å", "\\r{A}");
+        return s;
     }
 }

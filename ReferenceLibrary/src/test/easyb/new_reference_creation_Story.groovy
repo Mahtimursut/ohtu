@@ -117,7 +117,7 @@ scenario "Multiple new references can be added to system", {
             "Martin09",
             "a",
             "Martin, Robert C",
-            "Clean Code: A Handbook of Agile Software Craftsmanship",
+            "Clean Code: A Handbook of Agile Software Craftsmanshipäöå",
             "Prentice Hall",
             "2008",
             "n",
