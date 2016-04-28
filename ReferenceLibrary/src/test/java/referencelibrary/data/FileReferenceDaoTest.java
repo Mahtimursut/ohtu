@@ -133,4 +133,38 @@ public class FileReferenceDaoTest {
         refs.remove(removeMe);
         assertEquals(1, refs.listAll().size());
     }
+
+    @Test
+    public void correctReferenceIsFound() throws Exception {
+        refs.add(reference);
+        Reference found = refs.find("TEST");
+        assertEquals(reference, found);
+    }
+
+    @Test
+    public void searchingForNonexistingReferenceShouldReturnNull() throws Exception {
+        Reference found = refs.find("no_such_ref");
+        assertEquals(null, found);
+    }
+
+    @Test
+    public void changesAreTemporaryBeforeSaving() throws Exception {
+        Reference ref = new BookReference();
+        ref.setReferenceName("ref");
+        ref.setField("title", "oldie");
+        refs.add(ref);
+        ref.setField("title", "newbie");
+        assertEquals("oldie", refs.find("ref").getField("title"));
+    }
+
+    @Test
+    public void changesPersistWhenSaved() throws Exception {
+        Reference ref = new BookReference();
+        ref.setReferenceName("ref");
+        ref.setField("title", "oldie");
+        refs.add(ref);
+        ref.setField("title", "newbie");
+        refs.saveChanges();
+        assertEquals("newbie", refs.find("ref").getField("title"));
+    }
 }

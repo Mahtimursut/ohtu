@@ -26,6 +26,15 @@ public class StubDao implements ReferenceDao {
     }
 
     @Override
+    public Reference find(String referenceName) {
+        for (Reference r : refs)
+            if (r.getReferenceName().equalsIgnoreCase(referenceName))
+                return r;
+
+        return null;
+    }
+
+    @Override
     public void add(Reference reference) {
         refs.add(reference);
     }
@@ -33,5 +42,10 @@ public class StubDao implements ReferenceDao {
     @Override
     public void remove(String referenceName) {
         refs.removeIf(r -> r.getReferenceName().equals(referenceName));
+    }
+
+    @Override
+    public void saveChanges() {
+        // In-memory stub: no need to save
     }
 }

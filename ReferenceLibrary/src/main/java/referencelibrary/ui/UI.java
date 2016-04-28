@@ -45,6 +45,9 @@ public class UI {
                 case "r":
                     commands.getCommand(REMOVE_REFERENCE_COMMAND).execute();
                     break;
+                case "e":
+                    commands.getCommand(EDIT_REFERENCE_COMMAND).execute();
+                    break;
             }
             //new command
             io.print("");

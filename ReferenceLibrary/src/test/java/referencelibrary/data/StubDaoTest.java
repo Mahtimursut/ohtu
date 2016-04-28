@@ -53,4 +53,27 @@ public class StubDaoTest {
         assertNotEquals(referenceName, reflist.get(0).getReferenceName());
     }
 
+    @Test
+    public void find() throws Exception {
+        Reference ref = new BookReference();
+        ref.setReferenceName("find_me");
+        refs.add(ref);
+        Reference found = refs.find("find_me");
+        assertEquals(ref, found);
+    }
+
+    @Test
+    public void searchingForNonexistingReferenceShouldReturnNull() throws Exception {
+        Reference ref = refs.find("no_such_ref");
+        assertEquals(null, ref);
+    }
+
+    @Test
+    public void saveChanges() throws Exception {
+        Reference ref = refs.find("REF");
+        ref.setField("title", "changed");
+        refs.saveChanges();
+        ref = refs.find("REF");
+        assertEquals("changed", ref.getField("title"));
+    }
 }

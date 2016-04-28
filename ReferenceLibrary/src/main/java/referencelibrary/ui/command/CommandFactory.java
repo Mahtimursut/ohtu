@@ -19,7 +19,8 @@ public class CommandFactory {
         ADD_INPROCEEDINGS_COMMAND,
         GENERATE_BIBTEX_COMMAND,
         REMOVE_REFERENCE_COMMAND,
-        SHOW_REFERENCES_COMMAND
+        SHOW_REFERENCES_COMMAND,
+        EDIT_REFERENCE_COMMAND
     }
 
     private HashMap<CommandName, Command> commands;
@@ -39,6 +40,7 @@ public class CommandFactory {
         commands.put(GENERATE_BIBTEX_COMMAND, new GenerateBibTexCommand(app, io));
         commands.put(SHOW_REFERENCES_COMMAND, new ShowReferencesCommand(app, io));
         commands.put(REMOVE_REFERENCE_COMMAND, new RemoveReferenceCommand(app, io));
+        commands.put(EDIT_REFERENCE_COMMAND, new EditReferenceCommand(app, io));
     }
 
     public Command getCommand(CommandName commandName) {

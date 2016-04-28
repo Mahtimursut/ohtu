@@ -26,6 +26,16 @@ public class App {
     public List<Reference> listReferences() {
         return references.listAll();
     }
+
+    /**
+     * Finds a reference with a given name
+     *
+     * @param referenceName Name of the reference to be looked for
+     * @return Reference if found, null otherwise
+     */
+    public Reference find(String referenceName) {
+        return references.find(referenceName);
+    }
         
     public void generateBixTexFile(String filename) {
         //convert all references to BibTeX-format
@@ -45,5 +55,12 @@ public class App {
      */
     public void removeReference(String referenceName) {
         references.remove(referenceName);
+    }
+
+    /**
+     * Stores changes made to any Reference
+     */
+    public void saveChanges() {
+        references.saveChanges();
     }
 }

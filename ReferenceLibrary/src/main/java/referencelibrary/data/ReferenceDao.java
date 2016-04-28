@@ -17,6 +17,12 @@ public interface ReferenceDao {
     List<Reference> listAll();
 
     /**
+     * Finds a reference with a given name
+     * @return Reference if found, null otherwise
+     */
+    Reference find(String referenceName);
+
+    /**
      * Adds a new Reference
      * @param reference Reference to be added
      * @throws referencelibrary.util.DuplicateNameException
@@ -29,4 +35,9 @@ public interface ReferenceDao {
      * @param referenceName
      */
     void remove(String referenceName);
+
+    /**
+     * Stores changes made to any Reference
+     */
+    void saveChanges();
 }

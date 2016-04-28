@@ -63,4 +63,22 @@ public class AppTest {
         assertTrue(app.listReferences().isEmpty());
     }
 
+    @Test
+    public void findReturnsCorrectReference() throws Exception {
+        Reference ref = new BookReference();
+        ref.setReferenceName("test");
+        app.newReference(ref);
+        assertEquals(ref, app.find(ref.getReferenceName()));
+    }
+
+    @Test
+    public void saveStoresChangedReference() throws Exception {
+        Reference ref = new BookReference();
+        ref.setReferenceName("test");
+        ref.setField("title", "oldie");
+        app.newReference(ref);
+        ref.setField("title", "newbie");
+        app.saveChanges();
+        assertEquals("newbie", app.find("test").getField("title"));
+    }
 }

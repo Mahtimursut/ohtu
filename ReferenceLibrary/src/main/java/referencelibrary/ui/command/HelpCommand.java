@@ -18,6 +18,7 @@ public class HelpCommand extends Command {
                 "(a)dd new reference," + "\n" +
                 "(g)enerate bibtex" + "\n" +
                 "(s)how references" + "\n" +
-                "(r)emove reference" + "\n");
+                "(r)emove reference" + "\n" +
+                "(e)dit reference" + "\n");
     }
 }

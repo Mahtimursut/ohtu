@@ -61,6 +61,16 @@ public class FileReferenceDao implements ReferenceDao {
     }
 
     @Override
+    public Reference find(String referenceName) {
+        this.references = readReferences();
+        for (Reference r : this.references)
+            if (r.getReferenceName().equalsIgnoreCase(referenceName))
+                return r;
+
+        return null;
+    }
+
+    @Override
     public void add(Reference reference) throws DuplicateNameException {
         if (references.contains(reference))
             throw new DuplicateNameException("References already contain a reference with the given name.");
@@ -95,6 +105,15 @@ public class FileReferenceDao implements ReferenceDao {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Override
+    public void saveChanges() {
+        try {
+            writeReferenceListToFile();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
