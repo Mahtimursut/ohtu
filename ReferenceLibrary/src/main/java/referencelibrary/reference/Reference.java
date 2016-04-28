@@ -62,6 +62,20 @@ public abstract class Reference implements Serializable {
         return fieldValues.get(fieldName);
     }
 
+    /**
+     * Removes the value corresponding a field
+     *
+     * <p>The removal will fail if trying to remove a required field.</p>
+     *
+     * @param fieldName Field for which to remove the value
+     * @return true if the value was removed, false otherwise
+     */
+    public boolean removeField(String fieldName) {
+        if (getRequiredFields().contains(fieldName)) return false;
+        fieldValues.remove(fieldName);
+        return true;
+    }
+
     @Override
     public String toString() {
         return "[" + getReferenceType() + ": " + getReferenceName() + "]";

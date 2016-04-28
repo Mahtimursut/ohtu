@@ -85,4 +85,14 @@ public class ReferenceTest {
         assertEquals(expectedFields, fields);
     }
 
+    @Test
+    public void removeField() throws Exception {
+        List<String> optionals = new ArrayList<>(reference.getOptionalFields().getFields());
+        String testField = optionals.get(0);
+        reference.setField(testField, "testvalue");
+        assertTrue(reference.getFieldValues().keySet().contains(testField));
+        reference.removeField(testField);
+        assertFalse(reference.getFieldValues().keySet().contains(testField));
+    }
+
 }

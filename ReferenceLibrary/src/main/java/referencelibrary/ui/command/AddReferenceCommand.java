@@ -22,6 +22,7 @@ abstract class AddReferenceCommand extends Command {
 
     private void setReferenceName(Reference reference) { 
         this.fieldValidator = new FieldValidator(reference);
+
         while(true) {
             String referenceName = io.readLine("Reference id");
             if (!fieldValidator.referenceNameIsUnique(referenceName, app.listReferences())) {
@@ -63,14 +64,7 @@ abstract class AddReferenceCommand extends Command {
     private void fillReferenceFields(Reference reference) {
         this.fieldValidator = new FieldValidator(reference);
         fillRequiredFields(reference);
-
-        // TODO maybe a yes/no UI function should be generalized
-        String optionalAnswer = io.readLine("Would you like to add some optional fields?\n"
-                + "\t(y)es\n"
-                + "\t(n)o (default)\n");
-        if (optionalAnswer.equalsIgnoreCase("y")) {
-            fillOptionalFields(reference);
-        }
+        new AddOptionalFieldsSubCommand(io, reference, fieldValidator).execute();
     }
 
     /**
@@ -79,60 +73,6 @@ abstract class AddReferenceCommand extends Command {
      */
     private void fillRequiredFields(Reference reference) {
         reference.getRequiredFields().getFields().forEach(field -> reference.setField(field, promptForField(field)));
-    }
-
-    /**
-     * Allows the user to add optional fields to a reference.
-     *
-     * @param reference The Reference to which to add optional fields
-     */
-    private void fillOptionalFields(Reference reference) {
-        while (true) {
-            String command = io.readLine("How do you want to proceed?\n"
-                    + "\t(s)how valid field names for this reference type\n"
-                    + "\t(a)dd a field\n"
-                    + "\t(d)one with adding fields\n");
-
-            switch (command) {
-                case "s":
-                    showValidOptionalFields(reference);
-                    break;
-                case "a":
-                    addOptionalFieldToReference(reference);
-                    break;
-                case "d":
-                default:
-                    return;
-            }
-        }
-    }
-
-    /**
-     * Shows the valid optional fields.
-     *
-     * @param reference The Reference for which to show the valid fields
-     */
-    private void showValidOptionalFields(Reference reference) {
-        reference.getOptionalFields().getFields().forEach(io::print);
-    }
-
-    /**
-     * Adds a single field to a reference
-     *
-     * @param reference The Reference to which to add the field
-     */
-    private void addOptionalFieldToReference(Reference reference) {
-        String fieldName;
-        String fieldValue;
-        // TODO should have some "backend" validation also (e.g. exception from Reference)
-        do {
-            fieldName = io.readLine("Field:");
-        } while (!fieldValidator.fieldNameIsValid(fieldName));
-        
-        do {
-            fieldValue = io.readLine(fieldName + ":");
-        } while (!fieldValidator.fieldValueIsValid(fieldValue));
-        reference.setField(fieldName, fieldValue);
     }
 
     /**
