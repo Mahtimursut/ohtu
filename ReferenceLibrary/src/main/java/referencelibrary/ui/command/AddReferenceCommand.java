@@ -23,15 +23,19 @@ abstract class AddReferenceCommand extends Command {
     private void setReferenceName(Reference reference) { 
         this.fieldValidator = new FieldValidator(reference);
         while(true) {
-            String referenceName = io.readLine("Refererence id");
-            if (fieldValidator.ReferenceNameIsUnique(
-                    referenceName, app.listReferences())) {
+            String referenceName = io.readLine("Reference id");
+            if (!fieldValidator.referenceNameIsUnique(referenceName, app.listReferences())) {
+                io.print("There already exists a reference with the name " + referenceName
+                        + "\nReference name must be unique.");
+            }
+            else if (!fieldValidator.referenceNameIsNotEmpty(referenceName)) {
+                io.print("Reference name should not be empty.");
+            }
+            else {
                 reference.setReferenceName(referenceName);
                 break;
             }
-            io.print("There already exists a reference with the name " + referenceName
-            + "\nReference name must be unique.");
-        } 
+        }
     }
     /**
      * Prompts for reference fields, checks for duplicate reference names and stores the reference.

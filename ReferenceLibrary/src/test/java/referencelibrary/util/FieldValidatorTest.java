@@ -62,7 +62,14 @@ public class FieldValidatorTest {
     public void testRefereceNameIsUnique() {
         ArrayList<Reference> references = new ArrayList();
         references.add(reference);
-        assertEquals(true, fieldValidator.ReferenceNameIsUnique("newBook", references));
-        assertEquals(false, fieldValidator.ReferenceNameIsUnique("book", references));
+        assertEquals(true, fieldValidator.referenceNameIsUnique("newBook", references));
+        assertEquals(false, fieldValidator.referenceNameIsUnique("book", references));
+    }
+
+    @Test
+    public void testReferenceNameIsNotEmpty() {
+        String empty = "", whitespace = " ";
+        assertFalse(fieldValidator.referenceNameIsNotEmpty(empty));
+        assertFalse(fieldValidator.referenceNameIsNotEmpty(whitespace));
     }
 }

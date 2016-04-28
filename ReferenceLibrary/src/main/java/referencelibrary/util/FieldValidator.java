@@ -37,10 +37,14 @@ public class FieldValidator {
         return true;
     }
     
-    public boolean ReferenceNameIsUnique(String referenceName, List<Reference> referenceList) {
+    public boolean referenceNameIsUnique(String referenceName, List<Reference> referenceList) {
         for (Reference reference : referenceList) {
             if(reference.getReferenceName().equalsIgnoreCase(referenceName)) return false;
         }
         return true;
+    }
+
+    public boolean referenceNameIsNotEmpty(String referenceName) {
+        return referenceName.trim().length() > 0;
     }
 }
