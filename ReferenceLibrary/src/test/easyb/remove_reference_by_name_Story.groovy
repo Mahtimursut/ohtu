@@ -40,7 +40,7 @@ scenario "removing by nonexistent name does nothing", {
 
     then 'no references have been removed', {
         reflist = app.listReferences()
-        io.getPrints().shouldHave("References with given id removed!")
+        io.getPrints().shouldHave("No references with given id found!")
         reflist.size().shouldBe 1
     }
 }

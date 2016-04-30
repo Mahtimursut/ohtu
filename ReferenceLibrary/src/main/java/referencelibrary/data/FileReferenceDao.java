@@ -102,14 +102,16 @@ public class FileReferenceDao implements ReferenceDao {
     }
 
     @Override
-    public void remove(String referenceName) {
+    public boolean remove(String referenceName) {
         if (references.removeIf(r -> r.hasReferenceName(referenceName))) {
             try {
                 writeReferenceListToFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return true;
         }
+        return false;
     }
 
     @Override

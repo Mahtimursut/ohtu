@@ -32,11 +32,13 @@ public interface ReferenceDao {
     void add(Reference reference) throws DuplicateNameException, NullNameException;
 
     /**
-     * Removes a references of given name
+     * Removes references of given name.
+     * Returns true if something was removed.
      *
      * @param referenceName
+     * @return removed
      */
-    void remove(String referenceName);
+    boolean remove(String referenceName);
 
     /**
      * Stores changes made to any Reference

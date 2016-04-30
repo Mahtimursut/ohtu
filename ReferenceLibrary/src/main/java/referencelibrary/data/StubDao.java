@@ -40,8 +40,8 @@ public class StubDao implements ReferenceDao {
     }
 
     @Override
-    public void remove(String referenceName) {
-        refs.removeIf(r -> r.getReferenceName().equals(referenceName));
+    public boolean remove(String referenceName) {
+        return refs.removeIf(r -> r.getReferenceName().equals(referenceName));
     }
 
     @Override

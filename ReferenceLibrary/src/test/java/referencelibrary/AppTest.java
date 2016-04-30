@@ -62,8 +62,14 @@ public class AppTest {
 
     @Test
     public void removeReferenceRemovesReferences() {
-        app.removeReference("REF");
+        assertTrue(app.removeReference("REF"));
         assertTrue(app.listReferences().isEmpty());
+    }
+
+    @Test
+    public void removeReferenceDoesNotRemoveNonMatchingReferences() {
+        assertFalse(app.removeReference("not a ref"));
+        assertEquals(1, app.listReferences().size());
     }
 
     @Test

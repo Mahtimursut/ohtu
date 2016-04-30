@@ -36,19 +36,15 @@ public class StubDaoTest {
     }
 
     @Test
-    public void remove() {
+    public void removeRemovesReferences() {
         String referenceName = "remove_me";
-        List<Reference> reflist;
 
         Reference ref = new BookReference();
         ref.setReferenceName(referenceName);
         refs.add(ref);
 
-        reflist = refs.listAll();
-        assertEquals(referenceName, reflist.get(1).getReferenceName());
-
-        refs.remove(referenceName);
-        reflist = refs.listAll();
+        assertTrue(refs.remove(referenceName));
+        List<Reference> reflist = refs.listAll();
         assertEquals(1, reflist.size());
         assertNotEquals(referenceName, reflist.get(0).getReferenceName());
     }

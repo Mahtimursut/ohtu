@@ -50,12 +50,14 @@ public class App {
     }
 
     /**
-     * Removes references with given name
+     * Removes references with given name.
+     * Returns true if something was removed.
      *
      * @param referenceName
+     * @return removed
      */
-    public void removeReference(String referenceName) {
-        references.remove(referenceName);
+    public boolean removeReference(String referenceName) {
+        return references.remove(referenceName);
     }
 
     /**

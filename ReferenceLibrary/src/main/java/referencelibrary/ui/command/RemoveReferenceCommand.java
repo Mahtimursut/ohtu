@@ -18,8 +18,11 @@ public class RemoveReferenceCommand extends Command {
         io.print("Give nothing to cancel.");
         String readLine = io.readLine("Reference id:");
         if (!readLine.isEmpty()) {
-            app.removeReference(readLine);
-            io.print("References with given id removed!");
+            if (app.removeReference(readLine)) {
+                io.print("References with given id removed!");
+            } else {
+                io.print("No references with given id found!");
+            }
         } else {
             io.print("operation cancelled.");
         }
