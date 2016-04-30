@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 
 import referencelibrary.util.DuplicateNameException;
 import referencelibrary.util.FileUtil;
+import referencelibrary.util.NullNameException;
 
 /**
  * Created by petri on 18.4.2016.
@@ -36,8 +37,10 @@ public class AppTest {
     }
 
     @Test
-    public void newReference() throws DuplicateNameException {
-        app.newReference(new BookReference());
+    public void newReference() throws DuplicateNameException, NullNameException {
+        Reference ref = new BookReference();
+        ref.setReferenceName("REF2");
+        app.newReference(ref);
         List<Reference> reflist = app.listReferences();
         reflist.get(1).setReferenceName("REF1");
         assertEquals(2, reflist.size());

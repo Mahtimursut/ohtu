@@ -95,4 +95,26 @@ public class ReferenceTest {
         assertFalse(reference.getFieldValues().keySet().contains(testField));
     }
 
+    @Test
+    public void hasReferenceNameRecognizesExactNameToBeRight() {
+        String correctName = "exactName 123";
+        reference.setReferenceName(correctName);
+        assertTrue(reference.hasReferenceName(correctName));
+    }
+
+    @Test
+    public void hasReferenceNameRecognizesDifferentCaseNameToBeRight() {
+        String correctName = "exactName 123";
+        String differentCaseName = "EXACTNAME 123";
+        reference.setReferenceName(correctName);
+        assertTrue(reference.hasReferenceName(differentCaseName));
+    }
+
+    @Test
+    public void hasReferenceNameRecognizesInvalidNameToBeWrong() {
+        String correctName = "exactName 123";
+        String invalidName = "invalid Name";
+        reference.setReferenceName(correctName);
+        assertFalse(reference.hasReferenceName(invalidName));
+    }
 }

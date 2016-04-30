@@ -5,6 +5,7 @@ import referencelibrary.io.IO;
 import referencelibrary.reference.Reference;
 import referencelibrary.util.DuplicateNameException;
 import referencelibrary.util.FieldValidator;
+import referencelibrary.util.NullNameException;
 
 /**
  * A general reference class addReferenceCommand
@@ -49,7 +50,7 @@ abstract class AddReferenceCommand extends Command {
             try {
                 app.newReference(reference);
                 return;
-            } catch (DuplicateNameException e) {
+            } catch (DuplicateNameException | NullNameException e) {
                 String name = promptForNewReferenceName();
                 reference.setReferenceName(name);
             }

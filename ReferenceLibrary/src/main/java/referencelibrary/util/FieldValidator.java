@@ -39,7 +39,7 @@ public class FieldValidator {
     
     public boolean referenceNameIsUnique(String referenceName, List<Reference> referenceList) {
         for (Reference reference : referenceList) {
-            if(reference.getReferenceName().equalsIgnoreCase(referenceName)) return false;
+            if(reference.hasReferenceName(referenceName)) return false;
         }
         return true;
     }

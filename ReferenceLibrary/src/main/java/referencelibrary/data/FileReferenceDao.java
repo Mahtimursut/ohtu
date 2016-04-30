@@ -6,6 +6,7 @@ import referencelibrary.util.DuplicateNameException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import referencelibrary.util.NullNameException;
 
 /**
  * Creted by petri on 11/04/16
@@ -71,7 +72,10 @@ public class FileReferenceDao implements ReferenceDao {
     }
 
     @Override
-    public void add(Reference reference) throws DuplicateNameException {
+    public void add(Reference reference) throws DuplicateNameException, NullNameException {
+        if (reference.getReferenceName() == null || reference.getReferenceName().isEmpty()) {
+            throw new NullNameException("Reference name cannot be empty");
+        }
         if (references.contains(reference))
             throw new DuplicateNameException("References already contain a reference with the given name.");
         references.add(reference);
@@ -99,7 +103,7 @@ public class FileReferenceDao implements ReferenceDao {
 
     @Override
     public void remove(String referenceName) {
-        if (references.removeIf(r -> r.getReferenceName().equals(referenceName))) {
+        if (references.removeIf(r -> r.hasReferenceName(referenceName))) {
             try {
                 writeReferenceListToFile();
             } catch (IOException e) {

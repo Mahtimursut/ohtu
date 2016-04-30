@@ -17,6 +17,7 @@ import referencelibrary.io.StubIO;
 import referencelibrary.reference.BookReference;
 import referencelibrary.reference.Reference;
 import referencelibrary.util.DuplicateNameException;
+import referencelibrary.util.NullNameException;
 
 
 /**
@@ -61,12 +62,13 @@ public class ShowReferencesCommandTest {
     }
     
     @Test
-    public void testShowNewReference() throws DuplicateNameException {
+    public void testShowNewReference() throws DuplicateNameException, NullNameException {
         this.showRefCmd = new ShowReferencesCommand(this.app, stubIO);
-        app.newReference(new BookReference());
-        app.listReferences().get(1).setReferenceName("TestName");
-        app.listReferences().get(1).setField("author", "New Test Author");
-        app.listReferences().get(1).setField("title", "New Test Title");
+        Reference ref = new BookReference();
+        ref.setReferenceName("TestName");
+        ref.setField("author", "New Test Author");
+        ref.setField("title", "New Test Title");
+        app.newReference(ref);
         this.showRefCmd.execute();
         assertEquals(true, stubIO.getPrints().contains("[TestName] New Test Author: New Test Title"));
         assertEquals(4, stubIO.getPrints().size());

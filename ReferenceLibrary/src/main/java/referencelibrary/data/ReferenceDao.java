@@ -4,6 +4,7 @@ import referencelibrary.reference.Reference;
 import referencelibrary.util.DuplicateNameException;
 
 import java.util.List;
+import referencelibrary.util.NullNameException;
 
 /**
  * Created by petri on 11/04/16.
@@ -26,8 +27,9 @@ public interface ReferenceDao {
      * Adds a new Reference
      * @param reference Reference to be added
      * @throws referencelibrary.util.DuplicateNameException
+     * @throws referencelibrary.util.NullNameException
      */
-    void add(Reference reference) throws DuplicateNameException;
+    void add(Reference reference) throws DuplicateNameException, NullNameException;
 
     /**
      * Removes a references of given name

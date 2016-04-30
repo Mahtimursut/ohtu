@@ -7,6 +7,7 @@ import referencelibrary.util.DuplicateNameException;
 import referencelibrary.util.FileUtil;
 
 import java.util.List;
+import referencelibrary.util.NullNameException;
 
 /**
  * Created by petri on 11/04/16.
@@ -19,7 +20,7 @@ public class App {
         this.references = references;
     }
 
-    public void newReference(Reference reference) throws DuplicateNameException {
+    public void newReference(Reference reference) throws DuplicateNameException, NullNameException {
         references.add(reference);
     }
 

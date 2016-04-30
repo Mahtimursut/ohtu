@@ -187,6 +187,16 @@ public abstract class Reference implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        return object instanceof Reference && ((Reference) object).referenceName.equalsIgnoreCase(this.referenceName);
+        return object instanceof Reference && hasReferenceName(((Reference) object).getReferenceName());
+    }
+
+    /**
+     * Returns true if the reference corresponds to the given reference name
+     *
+     * @param name
+     * @return
+     */
+    public boolean hasReferenceName(String name) {
+        return getReferenceName().equalsIgnoreCase(name);
     }
 }
