@@ -117,4 +117,36 @@ public class ReferenceTest {
         reference.setReferenceName(correctName);
         assertFalse(reference.hasReferenceName(invalidName));
     }
+
+    @Test
+    public void referenceWithoutTitleShouldReturnEmptyStringAsTitle() {
+        assertEquals("", reference.getTitle());
+    }
+
+    @Test
+    public void referenceWithTitleShouldReturnTitleAsTitle() {
+        reference.setField("title", "the title");
+        assertEquals("the title", reference.getTitle());
+    }
+
+    @Test
+    public void removeFieldReturnsFalseIfRequiredFieldGiven() {
+        assertFalse(reference.removeField("title"));
+        assertEquals(null, reference.getField("title"));
+    }
+
+    @Test
+    public void removeFieldReturnsTrueAndRemovesFieldValueIfValidFieldGiven() {
+        reference.setField("note", "the note");
+        assertTrue(reference.removeField("note"));
+        assertEquals(null, reference.getField("note"));
+    }
+
+    @Test
+    public void referenceIsFormattedAsExpectedWithAuthorAndNameAndTitle() {
+        reference.setReferenceName("the name");
+        reference.setField("author", "the author");
+        reference.setField("title", "the title");
+        assertEquals("[the name] the author: the title", reference.getReferenceAsFormattedText());
+    }
 }

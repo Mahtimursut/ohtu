@@ -122,7 +122,7 @@ public class FileReferenceDaoTest {
             refs.add(ref);
         }
 
-        refs.remove(removeMe);
+        assertTrue(refs.remove(removeMe));
         List<Reference> reflist = refs.listAll();
         for (Reference reference1 : reflist) {
             assertNotEquals(removeMe, reference1.getReferenceName());
@@ -136,7 +136,7 @@ public class FileReferenceDaoTest {
 
         refs.add(reference);
 
-        refs.remove(removeMe);
+        assertFalse(refs.remove(removeMe));
         assertEquals(1, refs.listAll().size());
     }
 

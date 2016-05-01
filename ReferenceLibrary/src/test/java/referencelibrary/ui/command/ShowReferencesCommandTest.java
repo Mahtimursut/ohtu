@@ -85,10 +85,4 @@ public class ShowReferencesCommandTest {
         new ShowReferencesCommand(this.app, stubIO).execute();
         assertEquals("[TestName] Test Editor: Test Title", stubIO.getPrints().get(3));
     }
-
-    @Test
-    public void referenceWithoutTitleShouldReturnEmptyStringAsTitle() throws Exception {
-        Reference ref = new BookReference();
-        assertEquals("", ref.getTitle());
-    }
 }
