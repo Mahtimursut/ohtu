@@ -28,7 +28,7 @@ public class StubDao implements ReferenceDao {
     @Override
     public Reference find(String referenceName) {
         for (Reference r : refs)
-            if (r.getReferenceName().equalsIgnoreCase(referenceName))
+            if (r.hasReferenceName(referenceName))
                 return r;
 
         return null;

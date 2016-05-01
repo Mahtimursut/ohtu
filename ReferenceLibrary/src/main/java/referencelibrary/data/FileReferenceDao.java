@@ -65,7 +65,7 @@ public class FileReferenceDao implements ReferenceDao {
     public Reference find(String referenceName) {
         this.references = readReferences();
         for (Reference r : this.references)
-            if (r.getReferenceName().equalsIgnoreCase(referenceName))
+            if (r.hasReferenceName(referenceName))
                 return r;
 
         return null;

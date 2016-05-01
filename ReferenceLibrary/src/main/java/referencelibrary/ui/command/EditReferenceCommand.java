@@ -5,8 +5,7 @@ import referencelibrary.io.IO;
 import referencelibrary.reference.Reference;
 import referencelibrary.util.FieldValidator;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by petri on 28.4.2016.
@@ -47,7 +46,7 @@ public class EditReferenceCommand extends Command {
     }
 
     private void editFieldsOneByOne(Reference reference) {
-        Map<String, String> fields = new HashMap<>(reference.getFieldValues());
+        TreeMap<String, String> fields = new TreeMap<>(reference.getFieldValues());
         fields.forEach((k, v) -> editField(k, v, reference));
     }
 
