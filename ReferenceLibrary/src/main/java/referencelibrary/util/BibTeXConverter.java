@@ -26,11 +26,7 @@ public class BibTeXConverter {
         for (String s : r.getFieldValues().keySet()) {
             s = s.trim();
             sb.append(" ").append(stringToBibtexFormat(s));
-            //add whitespace
-            for (int i = 0; i < longestKeyLength - s.length(); i++) {
-                sb.append(" ");
-            }
-
+            sb.append(createWhitespace(longestKeyLength - s.length()));
             sb.append(" = {").append(stringToBibtexFormat(r.getFieldValues().get(s)))
                     .append("},\n");
         }
@@ -38,10 +34,11 @@ public class BibTeXConverter {
         sb.append("}\n\n");
         return sb.toString();
     }
+    
     /**
      * Converts a string (field) to bibtex format
      * Conversions include:
-     * -conversion of scandinavic letters ä, ö, å 
+     * -conversion of scandinavic letters ä, ö, å
      * @param s
      * @return formattedS
      */
@@ -52,11 +49,13 @@ public class BibTeXConverter {
     public static int getLongestKeyLength(Reference r) {
         int longest = 0;
         for (String s : r.getFieldValues().keySet()) {
-            if (s.length() > longest) {
-                longest = s.length();
-            }
+            longest = Math.max(longest, s.length());
         }
         return longest;
+    }
+    
+    private static String createWhitespace(int length) {
+        return new String(new char[length]).replace('\0', ' ');
     }
     
     private static String convertScandicLetters(String s) {
