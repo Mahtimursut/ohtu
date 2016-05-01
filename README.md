@@ -8,6 +8,8 @@
 
 ### Links
 
+[Report](https://docs.google.com/document/d/1F9MlrS98P2a1QJvIjzEMFmzkLTzVBty7PwUDUjkqWws/pub)
+
 [Coursepage](https://github.com/mluukkai/ohtu2016/wiki/miniprojekti)
 
 [Project specifications](https://github.com/mluukkai/ohtu2016/wiki/miniprojekti-speksi)
