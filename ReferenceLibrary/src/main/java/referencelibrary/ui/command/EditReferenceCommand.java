@@ -13,10 +13,11 @@ import java.util.Map;
  */
 public class EditReferenceCommand extends Command {
 
-    private FieldValidator validator;
+    private FieldValidator fieldValidator;
 
     public EditReferenceCommand(App app, IO io) {
         super(app, io);
+        fieldValidator = new FieldValidator(io);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class EditReferenceCommand extends Command {
 
         io.print("\nEditing reference " + reference + "\n");
         editFieldsOneByOne(reference);
-        new AddOptionalFieldsSubCommand(io, reference, validator).execute();
+        new AddOptionalFieldsSubCommand(io, reference, fieldValidator).execute();
         app.saveChanges();
         io.print("Changes to " + name + " saved!");
     }
@@ -46,7 +47,6 @@ public class EditReferenceCommand extends Command {
     }
 
     private void editFieldsOneByOne(Reference reference) {
-        validator = new FieldValidator(reference);
         Map<String, String> fields = new HashMap<>(reference.getFieldValues());
         fields.forEach((k, v) -> editField(k, v, reference));
     }
@@ -76,7 +76,7 @@ public class EditReferenceCommand extends Command {
         do {
             value = io.readLine(field + ": ");
             if (value.isEmpty()) return;
-        } while(!validator.fieldValueIsValid(value));
+        } while(!fieldValidator.fieldValueIsValid(value));
         reference.setField(field, value);
         io.print("Field " + field + " updated!\n");
     }

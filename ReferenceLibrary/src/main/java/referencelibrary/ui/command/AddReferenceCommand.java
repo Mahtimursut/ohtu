@@ -19,11 +19,10 @@ abstract class AddReferenceCommand extends Command {
 
     AddReferenceCommand(App app, IO io) {
         super(app, io);
+        fieldValidator = new FieldValidator(io);
     }
 
     private void setReferenceName(Reference reference) { 
-        this.fieldValidator = new FieldValidator(reference);
-
         while(true) {
             String referenceName = io.readLine("Reference id");
             if (!fieldValidator.referenceNameIsUnique(referenceName, app.listReferences())) {
@@ -63,7 +62,6 @@ abstract class AddReferenceCommand extends Command {
      * @param reference The Reference to which to add fields
      */
     private void fillReferenceFields(Reference reference) {
-        this.fieldValidator = new FieldValidator(reference);
         fillRequiredFields(reference);
         new AddOptionalFieldsSubCommand(io, reference, fieldValidator).execute();
     }

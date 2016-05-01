@@ -6,6 +6,7 @@
 package referencelibrary.util;
 
 import java.util.List;
+import referencelibrary.io.IO;
 import referencelibrary.reference.Reference;
 
 /**
@@ -14,16 +15,16 @@ import referencelibrary.reference.Reference;
  */
 public class FieldValidator {
     
-    Reference reference;
-
-    public FieldValidator(Reference reference) {
-        this.reference = reference;
+    private IO io;
+    
+    public FieldValidator(IO io) {
+        this.io = io;
     }
     
-    public boolean fieldNameIsValid(String fieldName) {
+    public boolean fieldNameIsValid(String fieldName, Reference reference) {
         if (!reference.getRequiredFields().contains(fieldName)
                 && !reference.getOptionalFields().contains(fieldName)) {
-            System.out.println(fieldName + " is not a valid field");
+            io.print(fieldName + " is not a valid field");
             return false;
         }
         return true;
@@ -31,7 +32,7 @@ public class FieldValidator {
     
     public boolean fieldValueIsValid(String fieldValue) {    
         if (fieldValue.isEmpty()) {
-            System.out.println("Field value must not be empty");
+            io.print("Field value must not be empty");
             return false;
         }
         return true;

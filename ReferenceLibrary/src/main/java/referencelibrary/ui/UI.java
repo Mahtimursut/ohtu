@@ -25,12 +25,14 @@ public class UI {
     }
     
     public void run() {
-        io.print("Reference library" + "\n");
-        commands.getCommand(HELP_COMMAND).execute();
-        String command = "q";
-        command = io.readLine("Choose command:");
-        io.print("");
-        while(!command.equals("q")) {
+        io.print("Reference library");   
+        String command = "";     
+        
+        do {    
+            io.print("");
+            commands.getCommand(HELP_COMMAND).execute();
+            command = io.readLine("Choose command:");
+            io.print("");
             //call chosen functionality
             switch (command){
                 case "a":
@@ -48,13 +50,9 @@ public class UI {
                 case "e":
                     commands.getCommand(EDIT_REFERENCE_COMMAND).execute();
                     break;
-            }
-            //new command
-            io.print("");
-            commands.getCommand(HELP_COMMAND).execute();
-            command = io.readLine("Choose command:");
-            io.print("");
-        }
+            } 
+        } while(!command.equals("q"));
+        
         io.print("Program closing..");
     }
 

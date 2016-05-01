@@ -75,7 +75,7 @@ class AddOptionalFieldsSubCommand extends SubCommand {
 
         do {
             fieldName = io.readLine("Field:");
-        } while (!validator.fieldNameIsValid(fieldName));
+        } while (!validator.fieldNameIsValid(fieldName, reference));
 
         do {
             fieldValue = io.readLine(fieldName + ":");

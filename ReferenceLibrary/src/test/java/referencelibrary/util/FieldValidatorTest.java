@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import referencelibrary.io.StubIO;
 import referencelibrary.reference.BookReference;
 
 /**
@@ -38,7 +39,7 @@ public class FieldValidatorTest {
     public void setUp() {
         reference = new BookReference();
         reference.setReferenceName("book");
-        fieldValidator = new FieldValidator(reference);
+        fieldValidator = new FieldValidator(new StubIO());
     }
     
     @After
@@ -47,9 +48,9 @@ public class FieldValidatorTest {
     
     @Test
     public void testFieldNameIsValid() {
-        assertEquals(true, fieldValidator.fieldNameIsValid("author"));
-        assertEquals(false, fieldValidator.fieldNameIsValid("kebab"));
-        assertEquals(true, fieldValidator.fieldNameIsValid("series"));
+        assertEquals(true, fieldValidator.fieldNameIsValid("author", reference));
+        assertEquals(false, fieldValidator.fieldNameIsValid("kebab", reference));
+        assertEquals(true, fieldValidator.fieldNameIsValid("series", reference));
     }
     
     @Test
