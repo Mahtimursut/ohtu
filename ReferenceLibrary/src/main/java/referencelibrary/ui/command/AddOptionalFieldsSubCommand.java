@@ -72,11 +72,13 @@ class AddOptionalFieldsSubCommand extends SubCommand {
     private void addOptionalFieldToReference(Reference reference) {
         String fieldName;
         String fieldValue;
-
+        
+        io.print("Enter 'c' to cancel");
         do {
-            fieldName = io.readLine("Field:");
-        } while (!validator.fieldNameIsValid(fieldName, reference));
-
+            fieldName = io.readLine("field:");
+        } while (!validator.fieldNameIsValid(fieldName, reference) && fieldName.equals("c"));
+        
+        if (fieldName.equals("c")) return;
         do {
             fieldValue = io.readLine(fieldName + ":");
         } while (!validator.fieldValueIsValid(fieldValue));

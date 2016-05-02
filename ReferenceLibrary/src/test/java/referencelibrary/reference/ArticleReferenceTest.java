@@ -23,8 +23,6 @@ public class ArticleReferenceTest {
 
     @Test
     public void testConstructor() {
-        reference = new ArticleReference();
-        reference.setReferenceName("my_article");
         assertEquals("my_article", reference.getReferenceName());
         assertEquals(ReferenceType.REFERENCE_ARTICLE, reference.getReferenceType());
         assertTrue(reference.getFieldValues().isEmpty());

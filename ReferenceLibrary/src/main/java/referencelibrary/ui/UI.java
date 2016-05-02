@@ -86,7 +86,7 @@ public class UI {
                 io.print("Reference added!");
                 break;
             case "o":
-                io.print("--adding other not implement");
+                io.print("--adding other not implemented");
                 //io.print("Reference added!");
                 break;
         } 
