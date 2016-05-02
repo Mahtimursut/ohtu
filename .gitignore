@@ -22,7 +22,7 @@ hs_err_pid*
 .DS_STORE
 
 # Ignore (for now?) the file used to store saved references
-saved_references
+#saved_references
 
 # Ignore generated bibtex files
 *.bib
