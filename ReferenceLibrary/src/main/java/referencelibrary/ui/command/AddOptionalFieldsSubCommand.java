@@ -35,7 +35,7 @@ class AddOptionalFieldsSubCommand extends SubCommand {
             String command = io.readLine("How do you want to proceed?\n"
                     + "\t(s)how valid field names for this reference type\n"
                     + "\t(a)dd a field\n"
-                    + "\t(d)one with adding fields\n");
+                    + "\t(anything else) done with adding fields\n");
 
             switch (command) {
                 case "s":
@@ -44,7 +44,6 @@ class AddOptionalFieldsSubCommand extends SubCommand {
                 case "a":
                     addOptionalFieldToReference(reference);
                     break;
-                case "d":
                 default:
                     return;
             }
@@ -60,6 +59,7 @@ class AddOptionalFieldsSubCommand extends SubCommand {
         Collection<String> emptyFields = reference.getOptionalFields().getFields();
         Collection<String> filled = reference.getFieldValues().keySet();
         emptyFields.removeAll(filled);
+ 
         if (emptyFields.isEmpty()) io.print("All possible fields are filled.");
         else emptyFields.forEach(io::print);
     }
@@ -74,11 +74,13 @@ class AddOptionalFieldsSubCommand extends SubCommand {
         String fieldValue;
         
         io.print("Enter 'c' to cancel");
+        
         do {
             fieldName = io.readLine("field:");
         } while (!validator.fieldNameIsValid(fieldName, reference) && !fieldName.equals("c"));
         
         if (fieldName.equals("c")) return;
+        
         do {
             fieldValue = io.readLine(fieldName + ":");
         } while (!validator.fieldValueIsValid(fieldValue));

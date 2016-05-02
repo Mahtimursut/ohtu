@@ -38,6 +38,7 @@ abstract class AddReferenceCommand extends Command {
             }
         }
     }
+    
     /**
      * Prompts for reference fields, checks for duplicate reference names and stores the reference.
      * @param reference The Reference to add
