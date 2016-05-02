@@ -37,20 +37,24 @@ public class FileUtil {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
-            if (line != null) {
-                sb.append(line);
-            }
-
-            line = br.readLine();
-            while (line != null) {
-                sb.append(System.lineSeparator());
-                sb.append(line);
-                line = br.readLine();
-            }
+            readlines(line, sb, br);
             return sb.toString();
         } catch (IOException ex) {
             System.out.println("Could not read " + fileName + ": " + ex.getMessage());
         }
         return null;
+    }
+
+    private static void readlines(String line, StringBuilder sb, final BufferedReader br) throws IOException {
+        if (line != null) {
+            sb.append(line);
+        }
+        
+        line = br.readLine();
+        while (line != null) {
+            sb.append(System.lineSeparator());
+            sb.append(line);
+            line = br.readLine();
+        }
     }
 }
