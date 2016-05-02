@@ -76,7 +76,7 @@ class AddOptionalFieldsSubCommand extends SubCommand {
         io.print("Enter 'c' to cancel");
         do {
             fieldName = io.readLine("field:");
-        } while (!validator.fieldNameIsValid(fieldName, reference) && fieldName.equals("c"));
+        } while (!validator.fieldNameIsValid(fieldName, reference) && !fieldName.equals("c"));
         
         if (fieldName.equals("c")) return;
         do {
