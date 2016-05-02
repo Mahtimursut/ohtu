@@ -24,7 +24,7 @@ abstract class AddReferenceCommand extends Command {
 
     private void setReferenceName(Reference reference) { 
         while(true) {
-            String referenceName = io.readLine("Reference id");
+            String referenceName = io.readLine("Reference id: ");
             if (!fieldValidator.referenceNameIsUnique(referenceName, app.listReferences())) {
                 io.print("There already exists a reference with the name " + referenceName
                         + "\nReference name must be unique.");
@@ -91,7 +91,7 @@ abstract class AddReferenceCommand extends Command {
 
     private String promptForNewReferenceName() {
         io.print("A reference with the given reference id already exists.\n" +
-                "Please give another reference id for this reference:");
+                "Please give another reference id for this reference: ");
         return io.readLine("id:");
     }
 }

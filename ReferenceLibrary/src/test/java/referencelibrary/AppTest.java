@@ -56,7 +56,7 @@ public class AppTest {
     @Test
     public void generateBixTexFile() {
         app.generateBixTexFile(filename);
-        String result = FileUtil.Read(filename);
+        String result = FileUtil.read(filename);
         assertEquals("@Book{REF,\n}\n\n", result);
     }
 
