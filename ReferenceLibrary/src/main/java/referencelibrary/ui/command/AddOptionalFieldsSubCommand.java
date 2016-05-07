@@ -35,7 +35,7 @@ class AddOptionalFieldsSubCommand extends SubCommand {
             String command = io.readLine("How do you want to proceed?\n"
                     + "\t(s)how valid field names for this reference type\n"
                     + "\t(a)dd a field\n"
-                    + "\t(anything else) done with adding fields\n");
+                    + "\t(d)one with adding fields (default)\n");
 
             switch (command) {
                 case "s":
