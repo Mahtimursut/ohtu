@@ -25,7 +25,7 @@ public class FileUtil {
      * @param fileName name of the file to write to
      * @param content content of the file
      */
-    public static void Write(String fileName, String content) {
+    public static void write(String fileName, String content) {
         try (PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
             writer.println(content);
         } catch (FileNotFoundException | UnsupportedEncodingException ex) {
@@ -33,7 +33,7 @@ public class FileUtil {
         }
     }
 
-    public static String Read(String fileName) {
+    public static String read(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();

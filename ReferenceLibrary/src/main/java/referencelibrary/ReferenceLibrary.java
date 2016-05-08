@@ -28,7 +28,4 @@ public class ReferenceLibrary {
         UI terminalUI = new UI(io, app);
         terminalUI.run();
     }
-    
-    
-    
 }

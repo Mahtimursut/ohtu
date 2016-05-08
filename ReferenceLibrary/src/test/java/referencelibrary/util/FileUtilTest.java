@@ -50,19 +50,19 @@ public class FileUtilTest {
 
     @Test
     public void readNonexistingFile() {
-        assertNull(FileUtil.Read(TESTFILENAME_STRING));
+        assertNull(FileUtil.read(TESTFILENAME_STRING));
     }
 
     @Test
     public void writeAndReadFile() {
         String content = "my\ncontent";
-        FileUtil.Write(TESTFILENAME_STRING, content);
-        assertEquals(content, FileUtil.Read(TESTFILENAME_STRING));
+        FileUtil.write(TESTFILENAME_STRING, content);
+        assertEquals(content, FileUtil.read(TESTFILENAME_STRING));
     }
 
     @Test
     public void writeInvalidFile() {
         String filename = "invalid/filename";
-        FileUtil.Write(filename, "");
+        FileUtil.write(filename, "");
     }
 }

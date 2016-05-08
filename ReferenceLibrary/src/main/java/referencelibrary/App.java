@@ -46,7 +46,7 @@ public class App {
             bibtexStringBuilder.append(refString);
         }
         //save String containing bibtex-references to File
-        FileUtil.Write(filename, bibtexStringBuilder.toString());
+        FileUtil.write(filename, bibtexStringBuilder.toString());
     }
 
     /**
